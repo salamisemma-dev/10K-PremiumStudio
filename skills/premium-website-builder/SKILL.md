@@ -36,6 +36,7 @@ Each rule has exactly one owner. Read the owner, do not re-derive its content.
 | Identity, tone, hard brand laws | `brand/manifest.md` | voice, the 5-asset rule, "delete over add" |
 | Visual + motion architecture | `blueprints/01-core-architecture.md` | layout laws, typographic scale, GSAP layers |
 | SEO + performance + a11y | `blueprints/02-seo-frontpage-matrix.md` | semantics, JSON-LD, Core Web Vitals, alt text |
+| Compact design laws | `blueprints/03-design-laws.md` | narrative role, visual anchor, type dominance, restraint, performance-preserved motion |
 | Agent behavior + workflow | `skills/premium-dev-skill.md` | the six pillars, tone toward the user |
 | Asset prompts (scene method) | `prompts/01-visual-assets.md` | how to brief images/video by scene |
 | Copy rules | `prompts/02-copywriting.md` | short headlines, hard claims, no em dash |

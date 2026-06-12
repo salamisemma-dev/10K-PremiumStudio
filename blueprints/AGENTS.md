@@ -6,6 +6,7 @@
 
 - `01-core-architecture.md` owns visual hierarchy, asset discipline, color, and motion.
 - `02-seo-frontpage-matrix.md` owns semantic structure, schema, Core Web Vitals, and ranking structure.
+- `03-design-laws.md` owns the compact design decision laws for narrative, visual anchors, type, restraint, and performance-preserved motion.
 
 ## Local Contracts
 
@@ -27,3 +28,4 @@
 
 - `01-core-architecture.md` - Visual, asset, color, and motion architecture.
 - `02-seo-frontpage-matrix.md` - SEO, semantics, accessibility, and performance matrix.
+- `03-design-laws.md` - Compact design laws that strengthen premium decisions without trend drift.

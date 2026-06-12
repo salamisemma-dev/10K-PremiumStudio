@@ -12,6 +12,7 @@ const required = [
   "blueprints/AGENTS.md",
   "blueprints/01-core-architecture.md",
   "blueprints/02-seo-frontpage-matrix.md",
+  "blueprints/03-design-laws.md",
   "prompts/AGENTS.md",
   "prompts/00-discovery-master.md",
   "prompts/01-visual-assets.md",

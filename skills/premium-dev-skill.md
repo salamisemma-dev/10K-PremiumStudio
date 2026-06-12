@@ -12,9 +12,10 @@ Before writing code, read:
 2. `brand/manifest.md`
 3. `blueprints/01-core-architecture.md`
 4. `blueprints/02-seo-frontpage-matrix.md`
-5. `projects/<client>/brief.md`
-6. `projects/<client>/assets.md`
-7. `projects/<client>/acceptance.md`
+5. `blueprints/03-design-laws.md`
+6. `projects/<client>/brief.md`
+7. `projects/<client>/assets.md`
+8. `projects/<client>/acceptance.md`
 
 ## Build Rule
 
