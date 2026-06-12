@@ -1,0 +1,30 @@
+{
+  "name": "10k-premiumstudio",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "apps/_template-site"
+  ],
+  "scripts": {
+    "build": "node checks/astro-command.mjs check && node checks/astro-command.mjs build",
+    "check": "npm run check:structure && npm run check:copy && npm run build && npm run check:browser && npm run check:lighthouse && npm run check:site",
+    "check:structure": "node checks/structure-check.mjs",
+    "check:copy": "node checks/copy-lint.mjs",
+    "check:site": "node checks/site-audit.mjs",
+    "check:browser": "node checks/browser-audit.mjs",
+    "check:lighthouse": "node checks/lighthouse-audit.mjs",
+    "dev": "node checks/astro-command.mjs dev --host 127.0.0.1 --port 4321",
+    "preview": "node checks/astro-command.mjs preview --host 127.0.0.1 --port 4321"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "astro": "^5.0.0",
+    "autoprefixer": "^10.4.20",
+    "chrome-launcher": "^1.2.1",
+    "gsap": "^3.12.5",
+    "lighthouse": "^13.4.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17"
+  }
+}

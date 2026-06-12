@@ -1,0 +1,120 @@
+---
+import "../styles/global.css";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "10K-PremiumStudio Template",
+  url: "https://example.com",
+  description: "A calm premium landing page template with semantic structure, measured motion, and strict delivery checks.",
+  provider: {
+    "@type": "Organization",
+    name: "10K-PremiumStudio"
+  }
+};
+---
+
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A premium landing page template for 10K-PremiumStudio." />
+    <title>10K-PremiumStudio Template</title>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+  </head>
+  <body class="text-ink antialiased">
+    <header class="px-6 py-6 sm:px-10 lg:px-16">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between text-xs uppercase tracking-widest text-ink/70" aria-label="Primary navigation">
+        <a href="/" class="font-semibold text-ink">10K-PremiumStudio</a>
+        <a href="#contact" class="rounded-none border-b border-ink pb-1">Start project</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="mx-auto grid min-h-[82vh] max-w-7xl items-end gap-12 px-6 pb-20 pt-16 sm:px-10 lg:grid-cols-[0.92fr_1.08fr] lg:px-16 lg:pb-28">
+        <div class="max-w-3xl">
+          <p data-hero-item class="mb-8 text-xs uppercase tracking-widest text-copper">One scene. Five assets.</p>
+          <h1 data-hero-item class="text-6xl font-black leading-none sm:text-7xl lg:text-8xl">Quiet work sells.</h1>
+          <p data-hero-item class="mt-8 max-w-xl text-lg font-light leading-8 text-ink/72">
+            A reference landing page for premium offers with restrained copy, semantic structure, and measured motion.
+          </p>
+        </div>
+
+        <figure data-hero-item class="scene-card">
+          <img
+            src="/hero-forge.svg"
+            width="1600"
+            height="1000"
+            alt="Abstract brushed steel in warm dusk light"
+            fetchpriority="high"
+            class="aspect-[16/10] w-full object-cover"
+          />
+          <figcaption data-caption="Warm steel after dusk" class="mt-4 text-xs uppercase tracking-widest text-ink/60">
+            Warm steel after dusk
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="bg-paper px-6 py-28 sm:px-10 lg:px-16 lg:py-36" aria-labelledby="proof-title">
+        <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.78fr_1fr]">
+          <div data-reveal>
+            <p class="mb-5 text-xs uppercase tracking-widest text-copper">Proof before polish</p>
+            <h2 id="proof-title" class="text-4xl font-black leading-tight sm:text-5xl">Built to prove.</h2>
+          </div>
+          <ul data-reveal class="grid gap-6 text-lg font-light leading-8 text-ink/72 sm:grid-cols-3">
+            <li>One canonical client brief before code.</li>
+            <li>Schema, headings, and media checks in CI.</li>
+            <li>Motion stops when users request less.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="px-6 py-28 text-paper sm:px-10 lg:px-16 lg:py-40" aria-labelledby="detail-title">
+        <div class="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[1fr_0.9fr]">
+          <figure data-reveal>
+            <img
+              src="/proof-detail.svg"
+              width="1200"
+              height="900"
+              alt="Abstract machined material close-up"
+              loading="lazy"
+              class="aspect-[4/3] w-full object-cover"
+            />
+            <figcaption data-caption="Precision without noise" class="mt-4 text-xs uppercase tracking-widest text-paper/60">
+              Precision without noise
+            </figcaption>
+          </figure>
+
+          <div data-reveal>
+            <p class="mb-5 text-xs uppercase tracking-widest text-copper">Technical spine</p>
+            <h2 id="detail-title" class="text-4xl font-black leading-tight sm:text-5xl">Structured for trust.</h2>
+            <p class="mt-8 text-lg font-light leading-8 text-paper/72">
+              The template keeps visual restraint close to verifiable engineering: one h1, JSON-LD, fixed media dimensions, and a no-JS readable page.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="bg-ink px-6 py-24 text-paper sm:px-10 lg:px-16" aria-labelledby="cta-title">
+        <div data-reveal class="mx-auto flex max-w-7xl flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="mb-5 text-xs uppercase tracking-widest text-copper">Delivery gate</p>
+            <h2 id="cta-title" class="text-4xl font-black leading-tight sm:text-5xl">Ship with evidence.</h2>
+          </div>
+          <a href="mailto:studio@example.com" class="inline-flex min-h-12 items-center border border-paper px-6 text-sm uppercase tracking-widest">
+            Start project
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-ink px-6 py-10 text-xs uppercase tracking-widest text-paper/50 sm:px-10 lg:px-16">
+      <div class="mx-auto max-w-7xl">10K-PremiumStudio reference template</div>
+    </footer>
+
+    <script>
+      import "../scripts/motion.js";
+    </script>
+  </body>
+</html>

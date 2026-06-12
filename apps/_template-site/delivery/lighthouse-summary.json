@@ -1,0 +1,14 @@
+{
+  "thresholds": {
+    "performance": 0.9,
+    "accessibility": 0.95,
+    "best-practices": 0.95,
+    "seo": 0.95
+  },
+  "scores": {
+    "performance": 1,
+    "accessibility": 1,
+    "best-practices": 0.96,
+    "seo": 1
+  }
+}

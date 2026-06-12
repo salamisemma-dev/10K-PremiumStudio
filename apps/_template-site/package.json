@@ -1,0 +1,22 @@
+{
+  "name": "@10k-premiumstudio/template-site",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node ../../checks/astro-command.mjs dev --host 127.0.0.1 --port 4321",
+    "build": "node ../../checks/build-template.mjs",
+    "preview": "node ../../checks/astro-command.mjs preview --host 127.0.0.1 --port 4321"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "astro": "^5.0.0",
+    "gsap": "^3.12.5",
+    "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17"
+  }
+}
