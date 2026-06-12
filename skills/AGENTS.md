@@ -5,6 +5,7 @@
 ## Ownership
 
 - `premium-dev-skill.md` describes agent behavior and workflow.
+- `premium-website-builder/SKILL.md` is the triggerable Claude Code skill that orchestrates the full repo build workflow. It points to owners; it must not duplicate their content.
 - Design rules live in `blueprints/`.
 - Brand rules live in `brand/`.
 - Project facts live in `projects/`.
@@ -25,3 +26,4 @@
 ## Child DOX Index
 
 - `premium-dev-skill.md` - Agent workflow for premium website delivery.
+- `premium-website-builder/` - Triggerable skill orchestrating discovery, build, checks, and delivery.
