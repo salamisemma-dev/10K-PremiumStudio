@@ -1,0 +1,21 @@
+name: spec-gate
+
+on:
+  push:
+    branches: [main, design-intelligence-integration]
+  pull_request:
+
+jobs:
+  spec-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: BOB spec validate (constitution + specs)
+        run: node scripts/bob_validate.mjs --strict .
+      - name: Design-intelligence selfcheck
+        run: node checks/design-intel.mjs --selfcheck
+      - name: Design-intelligence verification test
+        run: node tests/design-intelligence.test.mjs

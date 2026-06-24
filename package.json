@@ -8,8 +8,12 @@
   ],
   "scripts": {
     "build": "node checks/astro-command.mjs check && node checks/astro-command.mjs build",
-    "check": "npm run check:structure && npm run check:copy && npm run build && npm run check:browser && npm run check:lighthouse && npm run check:site",
+    "check": "npm run check:structure && npm run check:design && npm run check:copy && npm run build && npm run check:browser && npm run check:lighthouse && npm run check:site",
     "check:structure": "node checks/structure-check.mjs",
+    "check:design": "node checks/design-intel.mjs --selfcheck",
+    "design:lookup": "node checks/design-intel.mjs",
+    "test:design": "node tests/design-intelligence.test.mjs",
+    "spec:validate": "node scripts/bob_validate.mjs --strict .",
     "check:copy": "node checks/copy-lint.mjs",
     "check:site": "node checks/site-audit.mjs",
     "check:browser": "node checks/browser-audit.mjs",

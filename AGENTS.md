@@ -36,7 +36,13 @@
 - `blueprints/` - Design, motion, SEO, accessibility, and performance architecture.
 - `prompts/` - Prompt templates for discovery, assets, and copy generation.
 - `skills/` - AI-agent behavior contract for building premium websites.
+- `design-intelligence/` - Vendored, consulted design corpus (palettes, styles, fonts, UX, Astro stack). Candidates only; the scene wins (constitution §5).
 - `projects/` - Client project inputs, assumptions, asset manifests, and acceptance records.
 - `apps/` - Production website code and reusable runtime templates.
 - `checks/` - Executable quality checks and delivery verification.
+- `specs/` - Executable specifications (Spec-Driven Development); gated by `scripts/bob_validate.mjs`.
+- `scripts/` - Spec-gate validator (`bob_validate.mjs`).
+- `tests/` - Plain-node verification tests referenced by specs.
+- `constitution.md` - Supreme contract; everything conforms to it.
 - `PVA-10K-PremiumStudio.md` - Brutal plan of approach for turning the source proposal into a stable repository.
+- `PVA-design-intelligence-integration.md` - Plan + pros/cons (with a fix per con) for the design-intelligence integration.

@@ -8,8 +8,9 @@
 2. Read the nearest child `AGENTS.md` for the files you will touch.
 3. Start with `projects/<client>/brief.md`.
 4. Load `brand/manifest.md`, the `blueprints/`, and `skills/premium-dev-skill.md`.
-5. Build in `apps/`.
-6. Prove the result with `npm run check`.
+5. Consult the design corpus for candidates: `npm run design:lookup -- font "<scene mood>"` (rule: `blueprints/04-design-intelligence.md`; the scene always wins).
+6. Build in `apps/`.
+7. Prove the result with `npm run check`.
 
 ## Source Ownership
 
@@ -19,6 +20,7 @@
 - `projects/` owns client input and assumptions.
 - `apps/` owns implementation code.
 - `checks/` owns executable verification.
+- `design-intelligence/` is a consulted corpus (candidates only); `constitution.md` + `specs/` are the permanent intent, gated by `npm run spec:validate`.
 
 ## Commands
 

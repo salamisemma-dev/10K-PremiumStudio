@@ -37,6 +37,8 @@ Each rule has exactly one owner. Read the owner, do not re-derive its content.
 | Visual + motion architecture | `blueprints/01-core-architecture.md` | layout laws, typographic scale, GSAP layers |
 | SEO + performance + a11y | `blueprints/02-seo-frontpage-matrix.md` | semantics, JSON-LD, Core Web Vitals, alt text |
 | Compact design laws | `blueprints/03-design-laws.md` | narrative role, visual anchor, type dominance, restraint, performance-preserved motion |
+| Consulting the design corpus | `blueprints/04-design-intelligence.md` | how to use the vendored dataset under the scene discipline (candidates, not verdicts) |
+| Design-intelligence corpus | `design-intelligence/` | 161 palettes, 76 styles, 73 font pairings, UX guidelines, Astro stack — query via `npm run design:lookup` |
 | Agent behavior + workflow | `skills/premium-dev-skill.md` | the six pillars, tone toward the user |
 | Asset prompts (scene method) | `prompts/01-visual-assets.md` | how to brief images/video by scene |
 | Copy rules | `prompts/02-copywriting.md` | short headlines, hard claims, no em dash |
@@ -78,6 +80,23 @@ single gate is what stops drift at the third client.
   taste; derive them from the scene, per `blueprints/01-core-architecture.md`.
 - The `proof` becomes hard, specific claims in the Thesis and Feature sections,
   per `prompts/02-copywriting.md`. Replace vague marketing language with facts.
+
+### 3b. Consult the design intelligence (candidates, not verdicts)
+
+Once the `scene` is written, ground the design choices in the vendored corpus before
+coding. The scene always wins; the corpus validates contrast, offers font candidates,
+and filters anti-patterns. Full rule in `blueprints/04-design-intelligence.md`.
+
+```bash
+npm run design:lookup -- font "<scene mood words>"
+npm run design:lookup -- palette "<industry or mood>"
+npm run design:lookup -- style "<intended feel>"
+npm run design:lookup -- astro            # Astro-specific build guidance for apps/
+```
+
+Take the scene's hue family; use corpus values only to fix contrast, never to pick a
+palette by product type. Log the chosen palette/font/style — and the rejected
+alternatives — in `projects/<client>/brief.md` with a one-line scene justification.
 
 ### 4. Build the site
 
