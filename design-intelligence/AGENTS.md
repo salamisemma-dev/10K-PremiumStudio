@@ -30,7 +30,10 @@ the scene-first rule in `blueprints/01-core-architecture.md`.
   hand-edit rows; refresh from upstream and re-run checks. See `ATTRIBUTION.md`.
 - `scripts/*.py` — upstream reasoning engine (BM25 search + design-system generator).
   Optional; needs Python. The Node path below is the supported in-repo path.
-- `examples-21st-savethedate.md` — curated real-world patterns mapped to our design laws.
+- `examples-*.md` — curated real-world patterns mapped to our design laws + corpus rows,
+  each marked adopt/leave. `examples-21st-savethedate.md` (21st.dev + editorial archetype),
+  `examples-huly-motionsites.md` (huly.io restrained dark + motionsites motion primitives).
+- `external-tools.md` — optional SaaS aids (khroma/use.ai/uizard) with conflicts marked.
 - `README.md` — what each dataset contains and how to query it.
 
 ## How to query (no Python needed)
