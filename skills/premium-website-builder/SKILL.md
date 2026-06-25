@@ -40,6 +40,9 @@ Each rule has exactly one owner. Read the owner, do not re-derive its content.
 | Consulting the design corpus | `blueprints/04-design-intelligence.md` | how to use the vendored dataset under the scene discipline (candidates, not verdicts) |
 | Design-intelligence corpus | `design-intelligence/` | 161 palettes, 76 styles, 73 font pairings, UX guidelines, Astro stack; query via `npm run design:lookup` |
 | Craft laws + absolute bans | `blueprints/05-craft-and-bans.md` | adopted impeccable anti-slop bans; which detector rules and commands are out of register for 10K |
+| UX laws + a11y + process | `blueprints/06-ux-principles.md` | uxhints UX laws (Hick/Jakob/Miller/Fitts/nudge), accessibility, typography; enforced subset via `npm run check:ux` |
+| Storytelling structure | `prompts/03-storytelling.md` | the 4-act narrative mapped to the micro-narrative roles + copywriting |
+| External tool aids | `design-intelligence/external-tools.md` | khroma / use.ai / uizard — when they help, where they conflict (not wired) |
 | Agent behavior + workflow | `skills/premium-dev-skill.md` | the six pillars, tone toward the user |
 | Asset prompts (scene method) | `prompts/01-visual-assets.md` | how to brief images/video by scene |
 | Copy rules | `prompts/02-copywriting.md` | short headlines, hard claims, no em dash |
@@ -98,6 +101,17 @@ npm run design:lookup -- astro            # Astro-specific build guidance for ap
 Take the scene's hue family; use corpus values only to fix contrast, never to pick a
 palette by product type. Log the chosen palette/font/style, plus the rejected
 alternatives, in `projects/<client>/brief.md` with a one-line scene justification.
+
+### 3c. Structure the story and apply UX laws
+
+Before building, draft the content as a story and lock the UX rules:
+
+- Write copy in the 4-act structure (`prompts/03-storytelling.md`): Hook, Problem,
+  Solution, Invitation — mapped to the micro-narrative roles in `03-design-laws.md`.
+- Apply the UX laws in `blueprints/06-ux-principles.md`: max 2 primary CTAs (Hick),
+  proof right after the hero (confirmation bias), visible focus + contrast + alt text
+  (a11y), max 2 font families, readable leading. Headline tracking stays near-normal
+  (do not widen — it is a banned tell).
 
 ### 4. Build the site
 

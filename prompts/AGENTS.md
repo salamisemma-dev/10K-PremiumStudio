@@ -25,3 +25,4 @@
 - `00-discovery-master.md` - Converts discovery answers into the canonical project brief.
 - `01-visual-assets.md` - Generates prompts and manifests for visual assets.
 - `02-copywriting.md` - Generates short, factual premium copy.
+- `03-storytelling.md` - Structures page content as a 4-act narrative mapped to the micro-narrative roles.

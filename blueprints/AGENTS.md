@@ -9,6 +9,7 @@
 - `03-design-laws.md` owns the compact design decision laws for narrative, visual anchors, type, restraint, and performance-preserved motion.
 - `04-design-intelligence.md` owns how the vendored `design-intelligence/` corpus is consulted under the scene discipline (candidates, not verdicts).
 - `05-craft-and-bans.md` owns the adopted impeccable absolute bans + the detector rule selection and out-of-register command list.
+- `06-ux-principles.md` owns the uxhints UX laws, accessibility requirements, typography, design process, and the enforced UX self-check.
 
 ## Local Contracts
 
@@ -33,3 +34,4 @@
 - `03-design-laws.md` - Compact design laws that strengthen premium decisions without trend drift.
 - `04-design-intelligence.md` - How to consult the vendored design corpus under the scene discipline.
 - `05-craft-and-bans.md` - Adopted impeccable anti-slop bans + detector rule selection + out-of-register commands.
+- `06-ux-principles.md` - uxhints UX laws, accessibility, typography, design process, enforced UX self-check.

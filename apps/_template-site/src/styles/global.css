@@ -36,6 +36,14 @@ body {
   }
 }
 
+/* Accessibility: every interactive element gets a visible keyboard focus state.
+   UX law (uxhints): focus indicators are required, not optional. */
+:focus-visible {
+  outline: 2px solid var(--copper, #b8643a);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
 .scene-card {
   box-shadow: 0 24px 80px rgba(17, 17, 17, 0.14);
 }

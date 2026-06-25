@@ -23,6 +23,7 @@
 - `design-intelligence/` is a consulted corpus (candidates only); `constitution.md` + `specs/` are the permanent intent, gated by `npm run spec:validate`.
 - `blueprints/05-craft-and-bans.md` + `.impeccable/` add the impeccable anti-pattern gate (`npm run check:impeccable`); adopted objective bans only, scene-conflicting rules off.
 - `.claude-plugin/` packages the skill for cowork: `claude plugin marketplace add salamisemma-dev/10K-PremiumStudio`, then add `premium-website-builder`.
+- `blueprints/06-ux-principles.md` + `prompts/03-storytelling.md` add uxhints UX laws and a 4-act narrative; the testable subset is enforced by `npm run check:ux`.
 
 ## Commands
 
