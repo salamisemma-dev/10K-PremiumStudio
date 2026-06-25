@@ -8,18 +8,22 @@
   ],
   "scripts": {
     "build": "node checks/astro-command.mjs check && node checks/astro-command.mjs build",
-    "check": "npm run check:structure && npm run check:design && npm run check:copy && npm run build && npm run check:browser && npm run check:lighthouse && npm run check:site",
+    "check": "npm run spec:validate && npm run test && npm run check:structure && npm run check:design && npm run check:copy && npm run build && npm run check:browser && npm run check:lighthouse && npm run check:site && npm run check:impeccable",
     "check:structure": "node checks/structure-check.mjs",
     "check:design": "node checks/design-intel.mjs --selfcheck",
+    "check:impeccable": "node checks/impeccable-audit.mjs",
     "design:lookup": "node checks/design-intel.mjs",
+    "design:audit": "node checks/impeccable-audit.mjs",
     "test:design": "node tests/design-intelligence.test.mjs",
+    "test:impeccable": "node tests/impeccable-integration.test.mjs",
     "spec:validate": "node scripts/bob_validate.mjs --strict .",
     "check:copy": "node checks/copy-lint.mjs",
     "check:site": "node checks/site-audit.mjs",
     "check:browser": "node checks/browser-audit.mjs",
     "check:lighthouse": "node checks/lighthouse-audit.mjs",
     "dev": "node checks/astro-command.mjs dev --host 127.0.0.1 --port 4321",
-    "preview": "node checks/astro-command.mjs preview --host 127.0.0.1 --port 4321"
+    "preview": "node checks/astro-command.mjs preview --host 127.0.0.1 --port 4321",
+    "test": "npm run test:design && npm run test:impeccable"
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0",
@@ -27,6 +31,7 @@
     "autoprefixer": "^10.4.20",
     "chrome-launcher": "^1.2.1",
     "gsap": "^3.12.5",
+    "impeccable": "^3.1.0",
     "lighthouse": "^13.4.0",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17"

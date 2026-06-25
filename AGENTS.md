@@ -44,5 +44,7 @@
 - `scripts/` - Spec-gate validator (`bob_validate.mjs`).
 - `tests/` - Plain-node verification tests referenced by specs.
 - `constitution.md` - Supreme contract; everything conforms to it.
+- `.claude-plugin/` - Plugin + marketplace manifests so the skill is installable (cowork).
+- `.impeccable/` - Curated detector config (objective bans on; subjective/DESIGN.md rules off). See `blueprints/05-craft-and-bans.md`.
 - `PVA-10K-PremiumStudio.md` - Brutal plan of approach for turning the source proposal into a stable repository.
 - `PVA-design-intelligence-integration.md` - Plan + pros/cons (with a fix per con) for the design-intelligence integration.

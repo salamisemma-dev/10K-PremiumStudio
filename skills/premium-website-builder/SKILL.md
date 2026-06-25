@@ -38,7 +38,8 @@ Each rule has exactly one owner. Read the owner, do not re-derive its content.
 | SEO + performance + a11y | `blueprints/02-seo-frontpage-matrix.md` | semantics, JSON-LD, Core Web Vitals, alt text |
 | Compact design laws | `blueprints/03-design-laws.md` | narrative role, visual anchor, type dominance, restraint, performance-preserved motion |
 | Consulting the design corpus | `blueprints/04-design-intelligence.md` | how to use the vendored dataset under the scene discipline (candidates, not verdicts) |
-| Design-intelligence corpus | `design-intelligence/` | 161 palettes, 76 styles, 73 font pairings, UX guidelines, Astro stack — query via `npm run design:lookup` |
+| Design-intelligence corpus | `design-intelligence/` | 161 palettes, 76 styles, 73 font pairings, UX guidelines, Astro stack; query via `npm run design:lookup` |
+| Craft laws + absolute bans | `blueprints/05-craft-and-bans.md` | adopted impeccable anti-slop bans; which detector rules and commands are out of register for 10K |
 | Agent behavior + workflow | `skills/premium-dev-skill.md` | the six pillars, tone toward the user |
 | Asset prompts (scene method) | `prompts/01-visual-assets.md` | how to brief images/video by scene |
 | Copy rules | `prompts/02-copywriting.md` | short headlines, hard claims, no em dash |
@@ -95,8 +96,8 @@ npm run design:lookup -- astro            # Astro-specific build guidance for ap
 ```
 
 Take the scene's hue family; use corpus values only to fix contrast, never to pick a
-palette by product type. Log the chosen palette/font/style — and the rejected
-alternatives — in `projects/<client>/brief.md` with a one-line scene justification.
+palette by product type. Log the chosen palette/font/style, plus the rejected
+alternatives, in `projects/<client>/brief.md` with a one-line scene justification.
 
 ### 4. Build the site
 
@@ -120,10 +121,19 @@ Run the gate from the repository root and fix until green:
 npm run check
 ```
 
-This chains: structure, copy lint, Astro build, Playwright browser audit
-(desktop + mobile, console-error free), Lighthouse, and the site audit. Useful
-single steps while iterating: `npm run check:structure`, `check:copy`,
-`check:browser`, `check:lighthouse`, `check:site`.
+This chains: spec validate, design-intelligence selfcheck, structure, copy lint,
+Astro build, Playwright browser audit (desktop + mobile, console-error free),
+Lighthouse, the site audit, and the **impeccable anti-pattern audit**
+(`check:impeccable`). Useful single steps while iterating: `npm run check:structure`,
+`check:copy`, `check:browser`, `check:lighthouse`, `check:site`, `check:impeccable`.
+
+The impeccable gate (`checks/impeccable-audit.mjs`) enforces the adopted absolute
+bans in `blueprints/05-craft-and-bans.md` (side-stripe borders, gradient text,
+glassmorphism-default, hero-metric, identical card grids, eyebrow/numbered
+scaffolding, text overflow, low contrast). Subjective rules that conflict with the
+scene discipline are disabled in `.impeccable/config.json`. The `bolder`, `overdrive`,
+`delight`, and `colorize` impeccable commands are **out of register** for 10K — do not
+run them; energy is a scene decision, not a generic pass.
 
 Notes that save time:
 - Lighthouse runs desktop form factor and is Windows-hardened in
@@ -146,6 +156,27 @@ After meaningful changes, re-read the DOX chain and update the nearest owning
 `AGENTS.md` when structure, contracts, workflow, or artifacts changed. Refresh
 each affected Child DOX Index. Remove stale text. A change that updates a brand,
 blueprint, or workflow rule updates the owner first, then the code.
+
+## Cowork usage
+
+This skill is packaged as an installable plugin (`.claude-plugin/plugin.json` +
+`marketplace.json`) so it runs in Claude cowork, not just inside a local clone.
+
+- **Bootstrap.** The skill needs the studio rail (`brand/`, `blueprints/`,
+  `design-intelligence/`, `checks/`). In cowork, work inside a checkout of this repo.
+  If it is absent, clone `https://github.com/salamisemma-dev/10K-PremiumStudio` into
+  the workspace first, then run the workflow there. Never reconstruct brand/blueprint
+  rules from memory — read the owners.
+- **Outputs.** Each client site is built under `apps/<client>-site/` and its evidence
+  under that site's `delivery/`. In cowork, that project directory is the deliverable;
+  do not write generated sites to the workspace root.
+- **Graceful degradation.** `npm run design:lookup` works offline from the vendored
+  CSVs (no network, no Python). `npm run check:impeccable` self-skips if the
+  `impeccable` devDependency is not installed, so the skill still runs in a minimal
+  cowork sandbox; run `npm install` to enforce the full gate.
+- **Install.** `claude plugin marketplace add salamisemma-dev/10K-PremiumStudio` then
+  add the `premium-website-builder` plugin (or point cowork at this repo's
+  `.claude-plugin/`).
 
 ## Definition of done
 

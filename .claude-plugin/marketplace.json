@@ -1,0 +1,15 @@
+{
+  "name": "10k-premiumstudio",
+  "owner": {
+    "name": "10K-PremiumStudio",
+    "url": "https://github.com/salamisemma-dev/10K-PremiumStudio"
+  },
+  "plugins": [
+    {
+      "name": "premium-website-builder",
+      "source": "./",
+      "description": "Build premium, scene-first landing pages with the 10K-PremiumStudio rail: brand laws, blueprints, design-intelligence corpus, and the impeccable anti-pattern gate.",
+      "version": "0.2.0"
+    }
+  ]
+}

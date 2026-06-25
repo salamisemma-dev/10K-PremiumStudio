@@ -1,0 +1,12 @@
+{
+  "name": "premium-website-builder",
+  "description": "10K-PremiumStudio: build calm, cinematic, high-performance premium landing pages from brand + blueprints + a vendored design-intelligence corpus, gated by the impeccable anti-pattern detector. Scene-first, anti-slop, evidence-verified.",
+  "version": "0.2.0",
+  "author": {
+    "name": "10K-PremiumStudio"
+  },
+  "homepage": "https://github.com/salamisemma-dev/10K-PremiumStudio",
+  "repository": "https://github.com/salamisemma-dev/10K-PremiumStudio",
+  "license": "MIT",
+  "skills": "./skills/"
+}

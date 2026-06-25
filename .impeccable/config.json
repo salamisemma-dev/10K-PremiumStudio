@@ -1,0 +1,16 @@
+{
+  "_rationale": "10K is scene-first and uses brand/manifest.md, not impeccable's DESIGN.md, so designSystem drift checks (design-system-font/color/radius) are disabled. overused-font and single-font are ignored because they conflict with the design-intelligence corpus font recommendations under the scene discipline (see blueprints/05-craft-and-bans.md). Every objective anti-pattern (contrast, side-stripe/border-accent, gradient-text, glassmorphism-default, hero metric, identical card grids, eyebrow/numbered scaffolding, text-overflow, cramped padding, low-contrast, line-length, monotonous spacing) stays ENABLED.",
+  "detector": {
+    "ignoreRules": [
+      "overused-font",
+      "single-font"
+    ],
+    "ignoreFiles": [
+      "node_modules/**",
+      "design-intelligence/**",
+      "apps/**/delivery/**"
+    ],
+    "ignoreValues": [],
+    "designSystem": { "enabled": false }
+  }
+}
