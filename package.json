@@ -8,16 +8,18 @@
   ],
   "scripts": {
     "build": "node checks/astro-command.mjs check && node checks/astro-command.mjs build",
-    "check": "npm run spec:validate && npm run test && npm run check:structure && npm run check:design && npm run check:copy && npm run build && npm run check:browser && npm run check:lighthouse && npm run check:site && npm run check:impeccable && npm run check:ux",
+    "check": "npm run spec:validate && npm run test && npm run check:structure && npm run check:design && npm run check:copy && npm run build && npm run check:browser && npm run check:lighthouse && npm run check:site && npm run check:impeccable && npm run check:ux && npm run check:motion",
     "check:structure": "node checks/structure-check.mjs",
     "check:design": "node checks/design-intel.mjs --selfcheck",
     "check:impeccable": "node checks/impeccable-audit.mjs",
     "check:ux": "node checks/ux-lint.mjs",
+    "check:motion": "node checks/motion-lint.mjs",
     "design:lookup": "node checks/design-intel.mjs",
     "design:audit": "node checks/impeccable-audit.mjs",
     "test:design": "node tests/design-intelligence.test.mjs",
     "test:impeccable": "node tests/impeccable-integration.test.mjs",
     "test:ux": "node tests/ux-principles.test.mjs",
+    "test:motion": "node tests/motion-standards.test.mjs",
     "spec:validate": "node scripts/bob_validate.mjs --strict .",
     "check:copy": "node checks/copy-lint.mjs",
     "check:site": "node checks/site-audit.mjs",
@@ -25,7 +27,7 @@
     "check:lighthouse": "node checks/lighthouse-audit.mjs",
     "dev": "node checks/astro-command.mjs dev --host 127.0.0.1 --port 4321",
     "preview": "node checks/astro-command.mjs preview --host 127.0.0.1 --port 4321",
-    "test": "npm run test:design && npm run test:impeccable && npm run test:ux"
+    "test": "npm run test:design && npm run test:impeccable && npm run test:ux && npm run test:motion"
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0",

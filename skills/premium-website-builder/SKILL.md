@@ -41,6 +41,7 @@ Each rule has exactly one owner. Read the owner, do not re-derive its content.
 | Design-intelligence corpus | `design-intelligence/` | 161 palettes, 76 styles, 73 font pairings, UX guidelines, Astro stack; query via `npm run design:lookup` |
 | Craft laws + absolute bans | `blueprints/05-craft-and-bans.md` | adopted impeccable anti-slop bans; which detector rules and commands are out of register for 10K |
 | UX laws + a11y + process | `blueprints/06-ux-principles.md` | uxhints UX laws (Hick/Jakob/Miller/Fitts/nudge), accessibility, typography; enforced subset via `npm run check:ux` |
+| Motion standards | `blueprints/07-motion-standards.md` | Emil Kowalski easing/duration/physicality/interruptibility; easing tokens in the template; enforced via `npm run check:motion` |
 | Storytelling structure | `prompts/03-storytelling.md` | the 4-act narrative mapped to the micro-narrative roles + copywriting |
 | External tool aids | `design-intelligence/external-tools.md` | khroma / use.ai / uizard — when they help, where they conflict (not wired) |
 | Agent behavior + workflow | `skills/premium-dev-skill.md` | the six pillars, tone toward the user |
@@ -123,6 +124,11 @@ Before building, draft the content as a story and lock the UX rules:
 - Motion must never break access or crawlability: respect
   `prefers-reduced-motion`, keep the page readable without JavaScript, and let
   GSAP enhance rather than gate content. `src/scripts/motion.js` shows the pattern.
+- Follow `blueprints/07-motion-standards.md`: ease-out for enter/exit (use the
+  `--ease-out`/`--ease-in-out` tokens, never bare `ease-in`), no `scale(0)` entrances,
+  `transform`/`opacity` only, subtle `:active` press feedback, stagger 30–80ms. Keep it
+  within 10K restraint — a few motion moments, not constant motion. `npm run check:motion`
+  enforces the objective subset.
 - Keep `astro.config.mjs` on `strictPort: true`, port 4321. This prevents the
   stale dev-server drift that produces phantom 500s on a squatted port. If a dev
   server seems broken, suspect an orphaned process on 4321 before suspecting code.
