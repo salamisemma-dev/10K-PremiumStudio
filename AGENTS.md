@@ -48,3 +48,5 @@
 - `.impeccable/` - Curated detector config (objective bans on; subjective/DESIGN.md rules off). See `blueprints/05-craft-and-bans.md`.
 - `PVA-10K-PremiumStudio.md` - Brutal plan of approach for turning the source proposal into a stable repository.
 - `PVA-design-intelligence-integration.md` - Plan + pros/cons (with a fix per con) for the design-intelligence integration.
+- `PVA-motion-standards-integration.md` - Plan + pros/cons (with a fix per con) for the Emil motion standards integration.
+- `PVA-external-skills-round.md` - Triage + pros/cons (with a fix per con) for vercel / taste-skill / cloner skills.

@@ -41,3 +41,40 @@ These tools never override an owner. Color comes from the scene; layout comes fr
 blueprints and the story; quality is proven by `npm run check`. An external tool's
 output enters the project only as a candidate, logged with a scene justification in
 `projects/<client>/brief.md`, the same as any `design-intelligence` row.
+
+---
+
+## Referenced agent-skills (optional, not wired)
+
+Open skills worth knowing; none is installed into the pipeline. Use them as aids; the
+10K gates remain the source of truth.
+
+### vercel-labs/agent-skills (MIT)
+
+- **web-design-guidelines** — review UI against Vercel's Web Interface Guidelines (a11y,
+  focus, forms, perf, UX). Useful as a *second-opinion audit*, but it overlaps what 10K
+  already enforces (`impeccable` + `check:ux` + `check:structure`). Run it ad hoc; do not
+  duplicate its rules into the repo.
+- **deploy-to-vercel / vercel-cli-with-tokens** — optional deploy path for finished
+  client sites. Non-contradictory; deployment stays outside the offline-first gate.
+- **writing-guidelines** — copy guidance; overlaps `prompts/02-copywriting.md` +
+  `check:copy`. Reference only.
+
+### Leonxlnx/taste-skill (MIT)
+
+- **imagegen-frontend-web / -mobile, brandkit, image-to-code** — generate reference
+  boards / brand frames with an image model, then build from them. Same role as the
+  asset aids above: a candidate input to the scene, never a layout decision. The
+  adopted craft rules from this skill (H1 line limit, gapless grid, hero bans) live in
+  `blueprints/06-ux-principles.md`.
+
+## Left out — contradicts 10K (do not adopt)
+
+| Source | Item | Why it conflicts |
+|---|---|---|
+| JCodesMore/ai-website-cloner | `clone-website` (pixel-perfect clone) | Copies another site wholesale; explicitly drops a11y + SEO; the opposite of bespoke, scene-first, anti-slop. Only its inspection *method* is kept — `inspection-guide.md`. |
+| Leonxlnx/taste-skill | `brutalist-skill` | Loud, aggressive — against "restraint before spectacle". |
+| Leonxlnx/taste-skill | "NEVER Inter" font ban | Font is a scene + brand call; the corpus recommends Inter (same call as the impeccable `overused-font` ignore). |
+| Leonxlnx/taste-skill | Python-driven random layout selection | 10K is scene-deterministic; randomized layout is not. |
+| Leonxlnx/taste-skill | glass pill nav | Glassmorphism-as-default ban (`05`). |
+| vercel-labs/agent-skills | react-best-practices, composition-patterns, react-native, react-view-transitions | Wrong stack — 10K is Astro/Tailwind/GSAP, not React. Adopting React patterns would damage the codebase. |
