@@ -13,12 +13,20 @@ const required = [
   "blueprints/01-core-architecture.md",
   "blueprints/02-seo-frontpage-matrix.md",
   "blueprints/03-design-laws.md",
+  "blueprints/04-design-intelligence.md",
+  "blueprints/05-craft-and-bans.md",
+  "blueprints/06-ux-principles.md",
+  "blueprints/07-motion-standards.md",
   "prompts/AGENTS.md",
   "prompts/00-discovery-master.md",
   "prompts/01-visual-assets.md",
   "prompts/02-copywriting.md",
   "skills/AGENTS.md",
   "skills/premium-dev-skill.md",
+  "skills/premium-website-builder/SKILL.md",
+  ".claude-plugin/plugin.json",
+  ".claude-plugin/marketplace.json",
+  ".claude-plugin/skills/premium-website-builder/SKILL.md",
   "projects/AGENTS.md",
   "projects/_template/brief.md",
   "projects/_template/content.md",
@@ -36,11 +44,17 @@ const required = [
   "checks/browser-audit.mjs",
   "checks/build-template.mjs",
   "checks/copy-lint.mjs",
+  "checks/design-intel.mjs",
+  "checks/impeccable-audit.mjs",
+  "checks/intake-convert.mjs",
   "checks/lighthouse-audit.mjs",
+  "checks/motion-lint.mjs",
   "checks/site-audit.mjs",
   "checks/static-server.mjs",
   "checks/structure-check.mjs",
+  "checks/ux-lint.mjs",
   "checks/website-quality-checklist.md",
+  "tests/intake-conversion.test.mjs",
   "Template/AGENTS.md",
   "Template/klant-website-discovery-vragenlijst.md",
   "Examples/AGENTS.md",
@@ -79,6 +93,14 @@ if (existsSync(astroConfigPath)) {
   const config = readFileSync(astroConfigPath, "utf8");
   if (!config.includes("strictPort: true")) failures.push("Astro config must use strictPort: true");
   if (!config.includes("port: 4321")) failures.push("Astro config must pin the canonical dev port 4321");
+}
+
+const sourceSkillPath = join(root, "skills/premium-website-builder/SKILL.md");
+const packagedSkillPath = join(root, ".claude-plugin/skills/premium-website-builder/SKILL.md");
+if (existsSync(sourceSkillPath) && existsSync(packagedSkillPath)) {
+  const sourceSkill = readFileSync(sourceSkillPath, "utf8");
+  const packagedSkill = readFileSync(packagedSkillPath, "utf8");
+  if (sourceSkill !== packagedSkill) failures.push("Packaged premium-website-builder skill must match skills/premium-website-builder/SKILL.md");
 }
 
 if (failures.length) {

@@ -9,7 +9,12 @@ import { dirname, join } from "node:path";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const fails = [];
+let functionalChecksSkipped = false;
 const ok = (cond, msg) => { if (!cond) fails.push(msg); };
+
+function sandboxBlocked(result) {
+  return result.error && result.error.code === "EPERM";
+}
 
 // 1. Curated detector config: the conflict resolution must be in place.
 const cfgPath = join(root, ".impeccable", "config.json");
@@ -35,29 +40,42 @@ if (existsSync(bpPath)) {
 
 // 3. Cowork plugin packaging.
 const plugPath = join(root, ".claude-plugin", "plugin.json");
+const sourceSkillPath = join(root, "skills", "premium-website-builder", "SKILL.md");
+const packagedSkillPath = join(root, ".claude-plugin", "skills", "premium-website-builder", "SKILL.md");
 ok(existsSync(plugPath), ".claude-plugin/plugin.json missing");
 if (existsSync(plugPath)) {
   const plug = JSON.parse(readFileSync(plugPath, "utf8"));
   ok(plug.skills === "./skills/", "plugin.json must point skills at ./skills/");
+  ok(/motion|check:motion/i.test(plug.description || ""), "plugin.json description must mention motion standards/check:motion");
 }
 ok(existsSync(join(root, ".claude-plugin", "marketplace.json")), ".claude-plugin/marketplace.json missing");
+ok(existsSync(packagedSkillPath), ".claude-plugin packaged premium-website-builder SKILL.md missing");
+if (existsSync(sourceSkillPath) && existsSync(packagedSkillPath)) {
+  ok(readFileSync(sourceSkillPath, "utf8") === readFileSync(packagedSkillPath, "utf8"), "packaged skill must match source skill exactly");
+}
 ok(existsSync(join(root, "checks", "impeccable-audit.mjs")), "checks/impeccable-audit.mjs missing");
 
-// 4. Functional: only when the detector devDependency is installed.
+// 4. Functional: only when the detector devDependency is installed and nested Node spawns are allowed.
 const bin = join(root, "node_modules", "impeccable", "cli", "bin", "cli.js");
 if (existsSync(bin)) {
   const fixture = join(root, ".impeccable", "_test-ban.css");
   writeFileSync(fixture, ".x{border-left:4px solid red;background:linear-gradient(90deg,#f00,#00f);-webkit-background-clip:text;background-clip:text;color:transparent}\n");
   try {
     const bad = spawnSync("node", [bin, "detect", fixture], { cwd: root, encoding: "utf8" });
-    ok(bad.status === 2, `detector must flag a known ban (exit 2), got ${bad.status}`);
     const gate = spawnSync("node", [join(root, "checks", "impeccable-audit.mjs"), "apps/_template-site/src"], { cwd: root, encoding: "utf8" });
-    ok(gate.status === 0, `gate must pass the clean template, got ${gate.status}`);
+    if (sandboxBlocked(bad) || sandboxBlocked(gate)) {
+      functionalChecksSkipped = true;
+      console.log("note: nested Node spawn blocked by sandbox - skipped functional detector checks; run npm run check:impeccable for the live gate.");
+    } else {
+      ok(bad.status === 2, `detector must flag a known ban (exit 2), got ${bad.status}`);
+      ok(gate.status === 0, `gate must pass the clean template, got ${gate.status}`);
+    }
   } finally {
     rmSync(fixture, { force: true });
   }
 } else {
-  console.log("note: impeccable devDependency absent — skipped functional detector checks (gate self-skips by design).");
+  functionalChecksSkipped = true;
+  console.log("note: impeccable devDependency absent - skipped functional detector checks (gate self-skips by design).");
 }
 
 if (fails.length) {
@@ -65,4 +83,6 @@ if (fails.length) {
   for (const f of fails) console.error(`  - ${f}`);
   process.exit(1);
 }
-console.log("impeccable-integration test passed: curated config, blueprint 05, plugin packaging, detector gate all OK.");
+console.log(functionalChecksSkipped
+  ? "impeccable-integration test passed: curated config, blueprint 05, and plugin packaging OK; functional detector check skipped here."
+  : "impeccable-integration test passed: curated config, blueprint 05, plugin packaging, detector gate all OK.");

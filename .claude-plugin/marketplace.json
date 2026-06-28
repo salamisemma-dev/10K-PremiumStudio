@@ -8,8 +8,8 @@
     {
       "name": "premium-website-builder",
       "source": "./",
-      "description": "Build premium, scene-first landing pages with the 10K-PremiumStudio rail: brand laws, blueprints, design-intelligence corpus, and the impeccable anti-pattern gate.",
-      "version": "0.2.0"
+      "description": "Build premium, scene-first landing pages with the 10K-PremiumStudio rail: brand laws, blueprints, design-intelligence corpus, impeccable/UX gates, and Emil motion standards via check:motion.",
+      "version": "0.2.1"
     }
   ]
 }

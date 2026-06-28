@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node ../../checks/astro-command.mjs dev --host 127.0.0.1 --port 4321",
     "build": "node ../../checks/build-template.mjs",
-    "preview": "node ../../checks/astro-command.mjs preview --host 127.0.0.1 --port 4321"
+    "preview": "node ../../checks/astro-command.mjs preview --host 127.0.0.1 --port 4321",
+    "check": "npm --prefix ../.. run check"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

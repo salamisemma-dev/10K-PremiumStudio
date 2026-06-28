@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import lighthouse from "lighthouse";
 import * as chromeLauncher from "chrome-launcher";
@@ -7,6 +7,12 @@ import { startStaticServer } from "./static-server.mjs";
 const root = process.cwd();
 const dist = join(root, "apps", "_template-site", "dist");
 const outputDir = join(root, "apps", "_template-site", "delivery");
+const htmlPath = join(dist, "index.html");
+
+if (!existsSync(htmlPath)) {
+  console.error("Lighthouse audit failed: built HTML missing. Run npm run build before check:lighthouse.");
+  process.exit(1);
+}
 mkdirSync(outputDir, { recursive: true });
 
 const thresholds = {

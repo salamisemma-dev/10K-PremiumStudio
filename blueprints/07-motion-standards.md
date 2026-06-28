@@ -2,8 +2,8 @@
 
 ## Goal
 
-Give the studio precise, craft-grade motion rules — easing curves, durations,
-physicality, interruptibility — so animations *feel right*, not just run. Distilled
+Give the studio precise, craft-grade motion rules - easing curves, durations,
+physicality, interruptibility - so animations *feel right*, not just run. Distilled
 from Emil Kowalski's animation standards (animations.dev, MIT). This deepens the
 "performance-preserved motion" law in `03-design-laws.md` and the motion bans in
 `05-craft-and-bans.md`; it does not loosen them.
@@ -25,7 +25,7 @@ constant motion. Adopt Emil's *technique* (how to animate well); keep 10K's *res
 | 100+/day (keyboard, command palette) | No animation, ever |
 | Tens/day (hover, list nav) | Remove or drastically reduce |
 | Occasional (modals, drawers, toasts) | Standard animation |
-| Rare / first-time (onboarding, celebration) | May add delight — within 10K restraint |
+| Rare / first-time (onboarding, celebration) | May add delight - within 10K restraint |
 
 Valid purposes: spatial consistency, state indication, explanation, feedback,
 preventing a jarring change. "It looks cool" on a frequently-seen element is not valid.
@@ -34,7 +34,7 @@ preventing a jarring change. "It looks cool" on a frequently-seen element is not
 
 - Entering / exiting → **ease-out**. Moving / morphing → **ease-in-out**. Hover / color
   → **ease**. Constant (marquee, progress) → **linear**. Default → **ease-out**.
-- **Never bare `ease-in` on UI** — it delays the moment the user watches most. Enforced
+- **Never bare `ease-in` on UI** - it delays the moment the user watches most. Enforced
   by `check:motion`.
 - Built-in easings are weak. Use the strong custom curves, shipped as tokens in
   `apps/_template-site/src/styles/global.css`:
@@ -48,11 +48,11 @@ preventing a jarring change. "It looks cool" on a frequently-seen element is not
 
 Button press 100–160ms · tooltips 125–200ms · dropdowns 150–250ms · modals/drawers
 200–500ms. Emil's "UI < 300ms" rule is for app UI; **10K sites are marketing**, where
-longer cinematic timing is legitimate — so duration is a review call, not a lint.
+longer cinematic timing is legitimate - so duration is a review call, not a lint.
 
 ## Physicality (adopted)
 
-- **Never `scale(0)`** — start from `scale(0.9–0.97)` + `opacity: 0`. Enforced by
+- **Never `scale(0)`** - start from `scale(0.9–0.97)` + `opacity: 0`. Enforced by
   `check:motion`.
 - **Origin-aware** popovers/dropdowns/tooltips scale from the trigger
   (`transform-origin: var(--radix-...)`), not center. Modals stay centered.
@@ -64,7 +64,7 @@ longer cinematic timing is legitimate — so duration is a review call, not a li
 - Predetermined motion → CSS transitions / `@starting-style` / WAAPI. Dynamic,
   gesture-driven → springs (retarget from current velocity).
 - Animate **`transform` + `opacity` only** (GPU). No layout props
-  (`width/height/margin/padding/top/left`) — also an impeccable ban.
+  (`width/height/margin/padding/top/left`) - also an impeccable ban.
 - Don't drive child transforms via a parent CSS variable (recalc storm); set transform
   on the element. Use full `transform` strings over Framer Motion `x`/`y` shorthands.
 
@@ -76,10 +76,10 @@ longer cinematic timing is legitimate — so duration is a review call, not a li
 
 ## Accessibility (adopted, with a 10K note)
 
-- `prefers-reduced-motion`: reduce — keep opacity/color that aids comprehension, drop
+- `prefers-reduced-motion`: reduce - keep opacity/color that aids comprehension, drop
   movement. Emil's "gentler, not zero". The reference template currently takes the
   stricter route (near-instant), which is acceptable for 10K's restraint; new sites may
-  use the gentler approach. Either way, reduced motion must be handled — enforced by
+  use the gentler approach. Either way, reduced motion must be handled - enforced by
   `check:motion`.
 - Gate hover motion behind `@media (hover: hover) and (pointer: fine)`.
 

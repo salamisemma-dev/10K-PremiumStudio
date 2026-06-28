@@ -15,29 +15,29 @@ UX laws applied here come from `blueprints/06-ux-principles.md`.
 
 ## The four acts of a premium landing page
 
-### Act 1 — The Hook (Hero) · role: tension
+### Act 1 - The Hook (Hero) · role: tension
 Stop the scroll with the one thing in a single clear line.
 - Headline 3–5 words; optional subline ≤ 10 words; no explanation, a promise or an
   intriguing observation. Large type, one strong visual.
-- UX law: **Peak–End** + **Nudge** — the first impression sets the whole experience.
+- UX law: **Peak–End** + **Nudge** - the first impression sets the whole experience.
 
-### Act 2 — The Problem (Thesis) · role: proof (recognition)
+### Act 2 - The Problem (Thesis) · role: proof (recognition)
 Make the visitor feel understood.
 - Name the specific problem you solve. Concrete, measurable pain. Max 3 sentences or a
   2–3 item list. No "in the old days" clichés.
-- UX law: **Confirmation Bias** — people look for evidence that matches their feeling.
+- UX law: **Confirmation Bias** - people look for evidence that matches their feeling.
 
-### Act 3 — The Solution (Features & proof) · role: detail
+### Act 3 - The Solution (Features & proof) · role: detail
 Show how you solve it, as benefits not specs.
 - Max 3–4 core features; each one sentence + a number/fact where possible. Bullets only
   if truly needed.
-- UX law: **Hick's Law** + **Miller's Law** — limit and group; don't overload.
+- UX law: **Hick's Law** + **Miller's Law** - limit and group; don't overload.
 
-### Act 4 — The Invitation (CTA) · role: action
+### Act 4 - The Invitation (CTA) · role: action
 One calm next step.
 - Active but soft CTA text (e.g. "View the collection"); supporting line ≤ 10 words; no
   fake urgency, no "buy now" shouting.
-- UX law: **Nudge** + **Peak–End** — make the wanted action easy; end deliberately.
+- UX law: **Nudge** + **Peak–End** - make the wanted action easy; end deliberately.
 
 ## Master prompt
 

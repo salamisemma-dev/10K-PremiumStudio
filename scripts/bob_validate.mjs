@@ -53,7 +53,7 @@ const specs = walk(join(ROOT, 'specs')).filter((f) => f.endsWith('.spec.md'));
 if (specs.length === 0) errors.push('No specs found under specs/**.');
 
 const REQUIRED_KEYS = ['id', 'type', 'version', 'status', 'owner'];
-const PATH_RE = /((?:tests|scripts|specs|supabase|src|app|shared|core|lib)\/[A-Za-z0-9_./-]+)/g;
+const PATH_RE = /(package\.json|(?:tests|scripts|checks|blueprints|design-intelligence|specs|supabase|src|app|apps|shared|core|lib)\/[A-Za-z0-9_./-]+)/g;
 
 for (const file of specs) {
   const rel = file.slice(ROOT.length + 1).replace(/\\/g, '/');
@@ -84,6 +84,39 @@ for (const file of specs) {
 //   if (dream) { /* assert columns/invariants */ }
 // ─────────────────────────────────────────────────────────────────────────────
 
+// 10K-PremiumStudio drift checks for the design-intelligence integration spec.
+try {
+  const pkg = JSON.parse(read(join(ROOT, 'package.json')));
+  const scripts = pkg.scripts || {};
+  for (const name of ['spec:validate', 'test', 'test:design', 'test:ux', 'test:motion', 'test:external', 'test:intake', 'check:design', 'check:ux', 'check:motion', 'check']) {
+    if (!scripts[name]) errors.push(`package.json: missing required script "${name}".`);
+  }
+  for (const gate of ['test:design', 'test:ux', 'test:motion', 'test:external', 'test:intake']) {
+    if (scripts.test && !scripts.test.includes(gate)) errors.push(`package.json: "test" must run ${gate}.`);
+  }
+  if (scripts['check:design'] && !/checks\/design-intel\.mjs\s+--selfcheck/.test(scripts['check:design'])) {
+    errors.push('package.json: "check:design" must run checks/design-intel.mjs --selfcheck.');
+  }
+  if (scripts.check) {
+    for (const gate of ['spec:validate', 'test', 'check:design', 'check:ux', 'check:motion']) {
+      if (!scripts.check.includes(gate)) errors.push(`package.json: "check" must include ${gate}.`);
+    }
+  }
+} catch (e) {
+  errors.push(`package.json: could not parse project scripts (${e.message}).`);
+}
+
+try {
+  const designIntel = read(join(ROOT, 'checks/design-intel.mjs'));
+  if (!/export function selfcheck/.test(designIntel)) {
+    errors.push('checks/design-intel.mjs: must export selfcheck for tests.');
+  }
+  if (!/--selfcheck/.test(designIntel) || !/process\.exit\(selfcheck\(\)/.test(designIntel)) {
+    errors.push('checks/design-intel.mjs: CLI --selfcheck must use the exported selfcheck.');
+  }
+} catch (e) {
+  errors.push(`checks/design-intel.mjs: could not read (${e.message}).`);
+}
 for (const w of warnings) console.warn(`⚠️  ${w}`);
 if (errors.length) {
   for (const e of errors) console.error(`❌ ${e}`);

@@ -34,7 +34,8 @@ for (const rel of ["Template/AGENTS.md", "prompts/00-discovery-master.md", "skil
 
 const script = read("checks/intake-convert.mjs");
 ok(/graceful-skips|return 0/.test(script), "intake converter must graceful-skip when markitdown is absent");
-ok(/NOT part of `npm run check`|not part of/i.test(read("specs/intake-conversion-integration.spec.md")), "spec must record that intake conversion is not a gate");
+const intakeSpec = read("specs/intake-conversion-integration.spec.md");
+ok(/not\s+(?:a\s+)?(?:part\s+of\s+)?(?:`npm run check`|`check`|gate)/i.test(intakeSpec), "spec must record that intake conversion is not a gate");
 
 if (fails.length) {
   console.error("intake-conversion test FAILED:");
