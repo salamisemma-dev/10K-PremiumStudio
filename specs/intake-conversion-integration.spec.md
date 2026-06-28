@@ -21,7 +21,7 @@ of why it is wired as an optional, graceful tool and not a gate.
    a source doc to markdown via markitdown if available (resolved from PATH /
    `python -m markitdown` / `uvx` / `pipx`). If none is found it graceful-skips (exit 0)
    with an install hint — it never fails a pipeline.
-2. It is **NOT** part of `npm run check`. markitdown is Python; the constitution's
+2. It is not part of `npm run check` (NOT a gate). markitdown is Python; the constitution's
    technology standard requires the Node path to always cover daily work, so the
    converter is optional and user-invoked.
 3. Markdown stays the source of truth (`AGENTS.md`): the converted `.md` is normalized
