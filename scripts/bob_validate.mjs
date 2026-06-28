@@ -88,7 +88,7 @@ for (const file of specs) {
 try {
   const pkg = JSON.parse(read(join(ROOT, 'package.json')));
   const scripts = pkg.scripts || {};
-  for (const name of ['spec:validate', 'test', 'test:design', 'test:ux', 'test:motion', 'test:external', 'test:intake', 'check:design', 'check:ux', 'check:motion', 'check']) {
+  for (const name of ['spec:validate', 'test', 'test:design', 'test:ux', 'test:motion', 'test:external', 'test:intake', 'check:design', 'check:ux', 'check:motion', 'intake:convert', 'check']) {
     if (!scripts[name]) errors.push(`package.json: missing required script "${name}".`);
   }
   for (const gate of ['test:design', 'test:ux', 'test:motion', 'test:external', 'test:intake']) {
@@ -96,6 +96,16 @@ try {
   }
   if (scripts['check:design'] && !/checks\/design-intel\.mjs\s+--selfcheck/.test(scripts['check:design'])) {
     errors.push('package.json: "check:design" must run checks/design-intel.mjs --selfcheck.');
+  }
+  if (scripts['intake:convert'] && scripts['intake:convert'] !== 'node checks/intake-convert.mjs') {
+    errors.push('package.json: "intake:convert" must run node checks/intake-convert.mjs.');
+  }
+  if (scripts.check && scripts.check.includes('intake:convert')) {
+    errors.push('package.json: "check" must not include intake:convert.');
+  }
+  const deps = JSON.stringify({ dependencies: pkg.dependencies || {}, devDependencies: pkg.devDependencies || {} });
+  if (/markitdown|python/i.test(deps)) {
+    errors.push('package.json: markitdown/python must remain optional and out of dependencies.');
   }
   if (scripts.check) {
     for (const gate of ['spec:validate', 'test', 'check:design', 'check:ux', 'check:motion']) {

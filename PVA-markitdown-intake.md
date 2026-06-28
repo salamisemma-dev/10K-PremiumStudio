@@ -5,7 +5,7 @@ waarop de discovery-brief wordt gebouwd, met Microsoft markitdown (MIT) — zond
 afhankelijk te maken van Python of de offline-first Node-pipeline te breken.
 
 **Bron:** `microsoft/markitdown` (MIT) — file→markdown converter, CLI
-`markitdown <file> -o out.md`, `pip install 'markitdown[all]'`.
+`markitdown <file> -o out.md`, `pip install 'markitdown[all]'`. The 10K wrapper only calls an already-installed CLI/module; it does not invoke auto-installing package runners.
 
 **Aanpak (BOB):** recall → spec (`specs/intake-conversion-integration.spec.md`) →
 optionele wrapper + owner-docs → test → persist.
@@ -29,10 +29,10 @@ optionele wrapper + owner-docs → test → persist.
 ### 2. Een wrapper bouwen i.p.v. markitdown vendoren
 
 - **Voor:** geen 2000-file Python-repo in 10K; de wrapper roept de tool aan als hij
-  bestaat (PATH / `python -m` / `uvx` / `pipx`).
+  bestaat (PATH / `python -m` / `python3 -m`).
 - **Nadeel:** afhankelijk van een externe install die er niet altijd is; risico op
   verwarrende fouten als de tool half werkt.
-  - **Fix:** meerdere invocatie-kandidaten geprobeerd; `--version` probe vóór gebruik;
+  - **Fix:** meerdere niet-installerende invocatie-kandidaten geprobeerd; `--version` probe vóór gebruik;
     bij afwezigheid heldere hint. Pure helper `buildOutPath` is unit-getest
     (sandbox-veilig, geen nested spawn in de test).
 
@@ -60,7 +60,7 @@ optionele wrapper + owner-docs → test → persist.
 | Artefact | Pad |
 |---|---|
 | Optionele intake-converter (graceful) | `checks/intake-convert.mjs` → `npm run intake:convert` |
-| Owner-docs | `Template/AGENTS.md`, `prompts/00-discovery-master.md` |
+| Owner-docs | `Template/AGENTS.md`, `prompts/00-discovery-master.md`, `README.md`, `skills/premium-website-builder/SKILL.md` (+ packaged mirror), root `AGENTS.md` |
 | Spec + test | `specs/intake-conversion-integration.spec.md`, `tests/intake-conversion.test.mjs` |
 
 ## Wat bewust NIET gedaan (geen schade)

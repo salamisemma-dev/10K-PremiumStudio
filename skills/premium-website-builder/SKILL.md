@@ -50,7 +50,7 @@ Each rule has exactly one owner. Read the owner, do not re-derive its content.
 | Copy rules | `prompts/02-copywriting.md` | short headlines, hard claims, no em dash |
 | Discovery to project facts | `prompts/00-discovery-master.md` | how intake becomes a brief |
 | Client intake questionnaire | `Template/klant-website-discovery-vragenlijst.md` | the human questions |
-| Intake doc conversion | `checks/intake-convert.mjs` | optional markitdown bridge: client `.docx`/`.pdf` → markdown brief (`npm run intake:convert`, offline-optional) |
+| Intake doc conversion | `checks/intake-convert.mjs` | optional markitdown bridge: client `.docx`/`.pdf` -> intermediate markdown for brief normalization (`npm run intake:convert`, offline-optional) |
 | Reference implementation | `apps/_template-site/` | a passing Astro + Tailwind + GSAP page |
 | Quality gate | `checks/` + root `package.json` | what "done" must prove |
 

@@ -12,7 +12,7 @@
 - Prefer fewer, stronger rules over duplicated prompt text.
 - When building the planned repo, create durable boundaries for brand, blueprints, prompts, skills, examples, templates, and implementation code.
 - Every generated website must preserve the core principle: one scene, five assets, semantic HTML, strong SEO, accessibility, and measured motion.
-- Markdown files in `brand/`, `blueprints/`, `prompts/`, `skills/`, `projects/`, `apps/`, and `checks/` are the normalized source of truth. Word documents are source inputs or archived references only.
+- Markdown files in `Template/`, `brand/`, `blueprints/`, `prompts/`, `skills/`, `projects/`, `apps/`, and `checks/` are the normalized source of truth. Word documents are source inputs or archived references only.
 - Never hardcode secrets. Use environment variables, document required names in `.env.example`, and keep `.env` files out of git.
 
 ## Work Guidance

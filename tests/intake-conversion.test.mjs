@@ -5,12 +5,22 @@
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { buildOutPath, CONVERTER_CANDIDATES } from "../checks/intake-convert.mjs";
+import { buildOutPath, CONVERTER_CANDIDATES, main, probe, resolveConverter } from "../checks/intake-convert.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const fails = [];
 const ok = (cond, msg) => { if (!cond) fails.push(msg); };
 const read = (rel) => (existsSync(join(root, rel)) ? readFileSync(join(root, rel), "utf8") : "");
+
+function fakeMissingSpawn() {
+  return { error: Object.assign(new Error("not found"), { code: "ENOENT" }), status: null };
+}
+
+function captureLogs() {
+  const logs = [];
+  const errors = [];
+  return { logs, errors, log: (value) => logs.push(String(value)), error: (value) => errors.push(String(value)) };
+}
 
 ok(existsSync(join(root, "checks/intake-convert.mjs")), "checks/intake-convert.mjs missing");
 ok(buildOutPath("client.docx") === "client.md", "buildOutPath must map .docx to .md");
@@ -18,6 +28,15 @@ ok(buildOutPath("client.pdf", "converted.md") === "converted.md", "buildOutPath 
 ok(buildOutPath("client") === "client.md", "buildOutPath must append .md when no extension exists");
 ok(CONVERTER_CANDIDATES.some(([cmd]) => cmd === "markitdown"), "converter candidates must include markitdown CLI");
 ok(CONVERTER_CANDIDATES.some(([cmd, flag]) => cmd === "python" && flag === "-m"), "converter candidates must include python -m markitdown fallback");
+ok(!CONVERTER_CANDIDATES.some(([cmd]) => cmd === "uvx" || cmd === "pipx"), "converter candidates must not auto-install via uvx/pipx");
+ok(probe(["markitdown"], () => ({ status: 0 })) === true, "probe must accept clean status 0");
+ok(probe(["markitdown"], () => ({ status: null, signal: "SIGTERM" })) === false, "probe must reject status null/signaled process");
+ok(resolveConverter([["missing"]], fakeMissingSpawn) === null, "resolveConverter must return null when all candidates are missing");
+
+const captured = captureLogs();
+const absentCode = main(["node", "checks/intake-convert.mjs", "package.json"], { spawn: fakeMissingSpawn, ...captured });
+ok(absentCode === 0, "main must graceful-skip with exit 0 when markitdown is absent");
+ok(captured.logs.join("\n").includes("markitdown not found"), "absent converter path must print the install hint");
 
 const pkg = JSON.parse(read("package.json"));
 const scripts = pkg.scripts || {};
@@ -42,4 +61,4 @@ if (fails.length) {
   for (const f of fails) console.error(`  - ${f}`);
   process.exit(1);
 }
-console.log("intake-conversion test passed: optional markitdown bridge, package wiring, owners, and no Python dependency all OK.");
+console.log("intake-conversion test passed: optional markitdown bridge, package wiring, absent-tool behavior, owners, and no Python dependency all OK.");

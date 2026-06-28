@@ -5,7 +5,7 @@
 Convert the client discovery questionnaire into `projects/<client>/brief.md`.
 
 If the client returned a `.docx`/`.pdf` rather than text, first convert it to markdown
-with `npm run intake:convert -- <source>` (optional markitdown bridge; graceful-skips if
+with `npm run intake:convert -- <source> [out.md]` (optional markitdown bridge; graceful-skips if
 not installed), then read the markdown. Markdown is the source of truth.
 
 ## Input Fields

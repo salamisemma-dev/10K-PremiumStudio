@@ -37,7 +37,7 @@ npm run intake:convert -- "Template/Klant-Website Discovery -Vragenlijst.docx"
 
 ## Intake Conversion
 
-Client `.docx`/`.pdf` intake can be converted to markdown with `npm run intake:convert -- <source> [out.md]` when optional markitdown is installed. This command is not part of `npm run check`; markdown remains the source of truth.
+Client `.docx`/`.pdf` intake can be converted to markdown with `npm run intake:convert -- <source> [out.md]` when optional markitdown is already installed. This command is not part of `npm run check`; normalize converted text into `projects/<client>/` because project markdown remains the source of truth.
 
 ## Secrets
 
