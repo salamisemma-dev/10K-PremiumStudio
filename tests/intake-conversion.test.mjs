@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Verification for specs/intake-conversion-integration.spec.md
-// Plain-node test: exits 0 on pass, 1 on failure. Sandbox-safe (no nested spawns).
+// Plain-node test: exits 0 on pass, 1 on failure.
 
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -12,31 +12,33 @@ const fails = [];
 const ok = (cond, msg) => { if (!cond) fails.push(msg); };
 const read = (rel) => (existsSync(join(root, rel)) ? readFileSync(join(root, rel), "utf8") : "");
 
-// 1. Helper present + pure mapping correct.
-ok(existsSync(join(root, "checks", "intake-convert.mjs")), "checks/intake-convert.mjs missing");
-ok(buildOutPath("Template/x.docx") === "Template/x.md", "buildOutPath must map .docx -> .md");
-ok(buildOutPath("a/b.pdf", "out.md") === "out.md", "buildOutPath must honor an explicit out path");
-ok(buildOutPath("noext") === "noext.md", "buildOutPath must append .md when no extension");
-ok(Array.isArray(CONVERTER_CANDIDATES) && CONVERTER_CANDIDATES.some((c) => c[0] === "markitdown"), "must try a markitdown invocation");
+ok(existsSync(join(root, "checks/intake-convert.mjs")), "checks/intake-convert.mjs missing");
+ok(buildOutPath("client.docx") === "client.md", "buildOutPath must map .docx to .md");
+ok(buildOutPath("client.pdf", "converted.md") === "converted.md", "buildOutPath must respect explicit output path");
+ok(buildOutPath("client") === "client.md", "buildOutPath must append .md when no extension exists");
+ok(CONVERTER_CANDIDATES.some(([cmd]) => cmd === "markitdown"), "converter candidates must include markitdown CLI");
+ok(CONVERTER_CANDIDATES.some(([cmd, flag]) => cmd === "python" && flag === "-m"), "converter candidates must include python -m markitdown fallback");
 
-// 2. Offline-first: no Python/markitdown dependency added to the Node project.
-const pkg = JSON.parse(read("package.json") || "{}");
-const allDeps = { ...(pkg.dependencies || {}), ...(pkg.devDependencies || {}) };
-for (const bad of ["markitdown", "python", "python-shell"])
-  ok(!(bad in allDeps), `offline-first: ${bad} must not be a dependency`);
+const pkg = JSON.parse(read("package.json"));
+const scripts = pkg.scripts || {};
+ok(scripts["intake:convert"] === "node checks/intake-convert.mjs", "package.json must expose intake:convert script");
+ok(!scripts.check.includes("intake:convert"), "intake:convert must not be part of npm run check");
+ok(scripts.test.includes("test:intake"), "npm test must include test:intake");
+ok(!JSON.stringify(pkg.dependencies || {}).match(/markitdown|python/i), "markitdown/python must not be a runtime dependency");
+ok(!JSON.stringify(pkg.devDependencies || {}).match(/markitdown|python/i), "markitdown/python must not be a devDependency");
 
-// 3. The converter must NOT be part of the check chain (it's optional, Python-based).
-ok(!/intake-convert|intake:convert/.test(pkg.scripts?.check || ""), "intake conversion must not be in `npm run check`");
-ok(typeof pkg.scripts?.["intake:convert"] === "string", "package.json must expose the intake:convert script");
+for (const rel of ["Template/AGENTS.md", "prompts/00-discovery-master.md", "skills/premium-website-builder/SKILL.md", "README.md"]) {
+  const text = read(rel);
+  ok(/intake:convert|markitdown/i.test(text), `${rel} must document the optional intake conversion step`);
+}
 
-// 4. Owners document the optional step (not duplicated logic).
-ok(/intake:convert/.test(read("Template/AGENTS.md")), "Template/AGENTS.md must mention the intake:convert step");
-ok(/intake:convert|markitdown/i.test(read("prompts/00-discovery-master.md")), "discovery-master must mention the optional conversion");
-ok(/source of truth/i.test(read("checks/intake-convert.mjs")), "intake-convert must state markdown stays source of truth");
+const script = read("checks/intake-convert.mjs");
+ok(/graceful-skips|return 0/.test(script), "intake converter must graceful-skip when markitdown is absent");
+ok(/NOT part of `npm run check`|not part of/i.test(read("specs/intake-conversion-integration.spec.md")), "spec must record that intake conversion is not a gate");
 
 if (fails.length) {
   console.error("intake-conversion test FAILED:");
   for (const f of fails) console.error(`  - ${f}`);
   process.exit(1);
 }
-console.log("intake-conversion test passed: helper + pure mapping, offline-first (no python dep), not in check chain, owners documented.");
+console.log("intake-conversion test passed: optional markitdown bridge, package wiring, owners, and no Python dependency all OK.");
