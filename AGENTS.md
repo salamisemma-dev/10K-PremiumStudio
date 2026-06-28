@@ -50,3 +50,4 @@
 - `PVA-design-intelligence-integration.md` - Plan + pros/cons (with a fix per con) for the design-intelligence integration.
 - `PVA-motion-standards-integration.md` - Plan + pros/cons (with a fix per con) for the Emil motion standards integration.
 - `PVA-external-skills-round.md` - Triage + pros/cons (with a fix per con) for vercel / taste-skill / cloner skills.
+- `PVA-markitdown-intake.md` - Plan + pros/cons (with a fix per con) for the optional markitdown intake bridge.

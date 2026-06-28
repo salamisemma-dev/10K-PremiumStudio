@@ -16,6 +16,12 @@
 ## Work Guidance
 
 - Keep templates human-friendly.
+- When a client returns a filled-in `.docx`/`.pdf` (or any source doc), convert it to
+  markdown before extracting facts: `npm run intake:convert -- <source> [out.md]`
+  (optional Microsoft markitdown bridge, `checks/intake-convert.mjs`). Markdown stays
+  the source of truth; normalize the converted text into `projects/<client>/`, do not
+  treat the Word/PDF as truth. The converter is offline-optional — it graceful-skips if
+  markitdown is not installed, so it never blocks the pipeline.
 
 ## Verification
 

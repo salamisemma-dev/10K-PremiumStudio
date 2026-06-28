@@ -15,12 +15,14 @@
     "check:ux": "node checks/ux-lint.mjs",
     "check:motion": "node checks/motion-lint.mjs",
     "design:lookup": "node checks/design-intel.mjs",
+    "intake:convert": "node checks/intake-convert.mjs",
     "design:audit": "node checks/impeccable-audit.mjs",
     "test:design": "node tests/design-intelligence.test.mjs",
     "test:impeccable": "node tests/impeccable-integration.test.mjs",
     "test:ux": "node tests/ux-principles.test.mjs",
     "test:motion": "node tests/motion-standards.test.mjs",
     "test:external": "node tests/external-skills.test.mjs",
+    "test:intake": "node tests/intake-conversion.test.mjs",
     "spec:validate": "node scripts/bob_validate.mjs --strict .",
     "check:copy": "node checks/copy-lint.mjs",
     "check:site": "node checks/site-audit.mjs",
@@ -28,7 +30,7 @@
     "check:lighthouse": "node checks/lighthouse-audit.mjs",
     "dev": "node checks/astro-command.mjs dev --host 127.0.0.1 --port 4321",
     "preview": "node checks/astro-command.mjs preview --host 127.0.0.1 --port 4321",
-    "test": "npm run test:design && npm run test:impeccable && npm run test:ux && npm run test:motion && npm run test:external"
+    "test": "npm run test:design && npm run test:impeccable && npm run test:ux && npm run test:motion && npm run test:external && npm run test:intake"
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0",

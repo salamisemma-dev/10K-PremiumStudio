@@ -45,11 +45,12 @@ Each rule has exactly one owner. Read the owner, do not re-derive its content.
 | Storytelling structure | `prompts/03-storytelling.md` | the 4-act narrative mapped to the micro-narrative roles + copywriting |
 | External tool aids | `design-intelligence/external-tools.md` | khroma / use.ai / uizard + referenced agent-skills - when they help, where they conflict (not wired) |
 | Reference-study method | `design-intelligence/inspection-guide.md` | how to study a reference site to inform a bespoke build - never clone (a11y/SEO stay mandatory) |
-| Agent behavior + workflow | `skills/premium-dev-skill.md` | the six pillars, tone toward the user |
+| Agent behavior + workflow | `skills/premium-dev-skill.md` | required reading, six-field gate, technical rules, delivery rule |
 | Asset prompts (scene method) | `prompts/01-visual-assets.md` | how to brief images/video by scene |
 | Copy rules | `prompts/02-copywriting.md` | short headlines, hard claims, no em dash |
 | Discovery to project facts | `prompts/00-discovery-master.md` | how intake becomes a brief |
 | Client intake questionnaire | `Template/klant-website-discovery-vragenlijst.md` | the human questions |
+| Intake doc conversion | `checks/intake-convert.mjs` | optional markitdown bridge: client `.docx`/`.pdf` → markdown brief (`npm run intake:convert`, offline-optional) |
 | Reference implementation | `apps/_template-site/` | a passing Astro + Tailwind + GSAP page |
 | Quality gate | `checks/` + root `package.json` | what "done" must prove |
 
@@ -145,8 +146,7 @@ npm run check
 This chains: spec validate, design-intelligence selfcheck, structure, copy lint,
 Astro build, Playwright browser audit (desktop + mobile, console-error free),
 Lighthouse, the site audit, the **impeccable anti-pattern audit**
-(`check:impeccable`), UX lint (`check:ux`), and motion lint (`check:motion`). Useful single steps while iterating: `npm run check:structure`,
-`check:copy`, `check:browser`, `check:lighthouse`, `check:site`, `check:impeccable`, `check:ux`, `check:motion`.
+(`check:impeccable`), UX lint (`check:ux`), and motion lint (`check:motion`). Useful single steps while iterating: `npm run check:structure`, `npm run check:copy`, `npm run check:browser`, `npm run check:lighthouse`, `npm run check:site`, `npm run check:impeccable`, `npm run check:ux`, `npm run check:motion`.
 
 The impeccable gate (`checks/impeccable-audit.mjs`) enforces the adopted absolute
 bans in `blueprints/05-craft-and-bans.md` (side-stripe borders, gradient text,
