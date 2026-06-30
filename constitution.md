@@ -49,9 +49,10 @@ may never replace the scene-first rule. The scene wins every conflict.
 
 ## 6. Quality governance
 
-- "Done" means proven: `npm run check` green (structure, design selfcheck, copy,
-  build, browser, Lighthouse, site) and `delivery.md` carrying real evidence, no
-  `pending`.
+- "Done" means proven: `npm run check` green. `package.json` owns the
+  operational gate list: strict spec validation, tests, structure, design selfcheck,
+  copy, build, browser, Lighthouse, site, impeccable, UX, and motion checks. The
+  site `delivery.md` must carry real evidence, no `pending`.
 - Spec gate: `node scripts/bob_validate.mjs --strict .` green before code; CI runs it.
 - Secrets: never committed; documented in `.env.example`; `.env` stays out of git.
 

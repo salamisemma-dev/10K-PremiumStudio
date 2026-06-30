@@ -32,6 +32,7 @@
 - `npm run check:structure`
 - `npm run check:copy`
 - `npm run check:design`
+- `npm run check:impeccable`
 - `npm run check:site`
 - `npm run check:browser`
 - `npm run check:lighthouse`

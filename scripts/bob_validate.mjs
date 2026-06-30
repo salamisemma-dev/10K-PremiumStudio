@@ -75,6 +75,10 @@ for (const file of specs) {
   if (realRefs.length === 0) {
     errors.push(`${rel}: Verification names no existing file (a spec untied to a real test is how drift slips in).`);
   }
+  const executableRefs = realRefs.filter((r) => /^(tests\/.*\.test\.mjs|checks\/.*\.mjs|scripts\/.*\.mjs)$/.test(r));
+  if (executableRefs.length === 0) {
+    errors.push(`${rel}: Verification must name at least one executable test or check under tests/, checks/, or scripts/.`);
+  }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -88,10 +92,10 @@ for (const file of specs) {
 try {
   const pkg = JSON.parse(read(join(ROOT, 'package.json')));
   const scripts = pkg.scripts || {};
-  for (const name of ['spec:validate', 'test', 'test:design', 'test:ux', 'test:motion', 'test:external', 'test:intake', 'check:design', 'check:ux', 'check:motion', 'intake:convert', 'check']) {
+  for (const name of ['spec:validate', 'test', 'test:design', 'test:impeccable', 'test:ux', 'test:motion', 'test:external', 'test:intake', 'test:templates', 'check:design', 'check:impeccable', 'check:ux', 'check:motion', 'intake:convert', 'check']) {
     if (!scripts[name]) errors.push(`package.json: missing required script "${name}".`);
   }
-  for (const gate of ['test:design', 'test:ux', 'test:motion', 'test:external', 'test:intake']) {
+  for (const gate of ['test:design', 'test:impeccable', 'test:ux', 'test:motion', 'test:external', 'test:intake', 'test:templates']) {
     if (scripts.test && !scripts.test.includes(gate)) errors.push(`package.json: "test" must run ${gate}.`);
   }
   if (scripts['check:design'] && !/checks\/design-intel\.mjs\s+--selfcheck/.test(scripts['check:design'])) {
@@ -108,7 +112,7 @@ try {
     errors.push('package.json: markitdown/python must remain optional and out of dependencies.');
   }
   if (scripts.check) {
-    for (const gate of ['spec:validate', 'test', 'check:design', 'check:ux', 'check:motion']) {
+    for (const gate of ['spec:validate', 'test', 'check:design', 'check:impeccable', 'check:ux', 'check:motion']) {
       if (!scripts.check.includes(gate)) errors.push(`package.json: "check" must include ${gate}.`);
     }
   }

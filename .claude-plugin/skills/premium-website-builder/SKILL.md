@@ -51,6 +51,7 @@ Each rule has exactly one owner. Read the owner, do not re-derive its content.
 | Discovery to project facts | `prompts/00-discovery-master.md` | how intake becomes a brief |
 | Client intake questionnaire | `Template/klant-website-discovery-vragenlijst.md` | the human questions |
 | Intake doc conversion | `checks/intake-convert.mjs` | optional markitdown bridge: client `.docx`/`.pdf` -> intermediate markdown for brief normalization (`npm run intake:convert`, offline-optional) |
+| Template presets (optional) | `templates/selection-guide.md` | pick a narrative-form skeleton; the scene still wins (§5); a startpunt, not an eindproduct |
 | Reference implementation | `apps/_template-site/` | a passing Astro + Tailwind + GSAP page |
 | Quality gate | `checks/` + root `package.json` | what "done" must prove |
 

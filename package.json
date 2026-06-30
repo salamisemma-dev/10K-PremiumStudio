@@ -23,6 +23,7 @@
     "test:motion": "node tests/motion-standards.test.mjs",
     "test:external": "node tests/external-skills.test.mjs",
     "test:intake": "node tests/intake-conversion.test.mjs",
+    "test:templates": "node tests/templates-collection.test.mjs",
     "spec:validate": "node scripts/bob_validate.mjs --strict .",
     "check:copy": "node checks/copy-lint.mjs",
     "check:site": "node checks/site-audit.mjs",
@@ -30,7 +31,7 @@
     "check:lighthouse": "node checks/lighthouse-audit.mjs",
     "dev": "node checks/astro-command.mjs dev --host 127.0.0.1 --port 4321",
     "preview": "node checks/astro-command.mjs preview --host 127.0.0.1 --port 4321",
-    "test": "npm run test:design && npm run test:impeccable && npm run test:ux && npm run test:motion && npm run test:external && npm run test:intake"
+    "test": "npm run test:design && npm run test:impeccable && npm run test:ux && npm run test:motion && npm run test:external && npm run test:intake && npm run test:templates"
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0",

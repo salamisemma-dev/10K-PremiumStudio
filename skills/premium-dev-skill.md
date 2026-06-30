@@ -21,6 +21,15 @@ Before writing code, read:
 11. `projects/<client>/assets.md`
 12. `projects/<client>/acceptance.md`
 
+## Template Selection (optional)
+
+Before building, you may pick a narrative-form preset from `templates/`. Read
+`templates/selection-guide.md` and choose by narrative form, not by branche. A template is
+a startpunt (skeleton shape), not an eindproduct: the `scene` still sets palette,
+typography, and light (constitution §5: the scene wins). Record the chosen template and
+the rejected runner-up in `projects/<client>/brief.md`. When no preset fits, build bespoke
+from `apps/_template-site`.
+
 ## Build Rule
 
 Build directly only when the canonical six fields are present or explicitly assumed:

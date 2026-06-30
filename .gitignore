@@ -21,3 +21,5 @@ test-results/
 !apps/_template-site/public/*.svg
 !apps/_template-site/public/*.txt
 !apps/_template-site/delivery/screenshots/*.png
+premium-website-builder.plugin
+.impeccable/_test-ban.css

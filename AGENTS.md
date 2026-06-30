@@ -37,6 +37,8 @@
 - `prompts/` - Prompt templates for discovery, assets, and copy generation.
 - `skills/` - AI-agent behavior contract for building premium websites.
 - `design-intelligence/` - Vendored, consulted design corpus (palettes, styles, fonts, UX, Astro stack). Candidates only; the scene wins (constitution §5).
+- `templates/` - Optional curated layer of 12 narrative-form blueprint-presets (a startpunt, not an eindproduct); selection by form, the scene wins; offline-first; gated by `npm run test:templates`.
+- `docs/` - Human-facing guides (e.g. the templates user guide). Explanatory, not normative.
 - `projects/` - Client project inputs, assumptions, asset manifests, and acceptance records.
 - `apps/` - Production website code and reusable runtime templates.
 - `checks/` - Executable quality checks and delivery verification.
@@ -51,3 +53,4 @@
 - `PVA-motion-standards-integration.md` - Plan + pros/cons (with a fix per con) for the Emil motion standards integration.
 - `PVA-external-skills-round.md` - Triage + pros/cons (with a fix per con) for vercel / taste-skill / cloner skills.
 - `PVA-markitdown-intake.md` - Plan + pros/cons (with a fix per con) for the optional markitdown intake bridge.
+- `PVA-templates-collection.md` - Plan + pros/cons (with a fix per con) for the curated template-preset layer.
