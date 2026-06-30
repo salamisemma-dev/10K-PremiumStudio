@@ -92,10 +92,10 @@ for (const file of specs) {
 try {
   const pkg = JSON.parse(read(join(ROOT, 'package.json')));
   const scripts = pkg.scripts || {};
-  for (const name of ['spec:validate', 'test', 'test:design', 'test:impeccable', 'test:ux', 'test:motion', 'test:external', 'test:intake', 'test:templates', 'check:design', 'check:impeccable', 'check:ux', 'check:motion', 'intake:convert', 'check']) {
+  for (const name of ['spec:validate', 'test', 'test:design', 'test:impeccable', 'test:ux', 'test:motion', 'test:external', 'test:intake', 'test:templates', 'test:concepts', 'check:design', 'check:impeccable', 'check:ux', 'check:motion', 'intake:convert', 'check']) {
     if (!scripts[name]) errors.push(`package.json: missing required script "${name}".`);
   }
-  for (const gate of ['test:design', 'test:impeccable', 'test:ux', 'test:motion', 'test:external', 'test:intake', 'test:templates']) {
+  for (const gate of ['test:design', 'test:impeccable', 'test:ux', 'test:motion', 'test:external', 'test:intake', 'test:templates', 'test:concepts']) {
     if (scripts.test && !scripts.test.includes(gate)) errors.push(`package.json: "test" must run ${gate}.`);
   }
   if (scripts['check:design'] && !/checks\/design-intel\.mjs\s+--selfcheck/.test(scripts['check:design'])) {

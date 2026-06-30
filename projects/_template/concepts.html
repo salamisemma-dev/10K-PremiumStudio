@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>10K Concept Preview - Three Landing Page Directions</title>
+  <meta name="description" content="Offline concept selector for comparing three 10K-PremiumStudio landing page directions before production build.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f6f1e8;
+      --muted: #b9b2a7;
+      --line: rgba(246, 241, 232, 0.16);
+      --panel: rgba(18, 19, 20, 0.86);
+      --panel-strong: #151617;
+      --bg: #0b0c0d;
+      --amber: #d6a451;
+      --steel: #8aa0b2;
+      --sage: #9cae8a;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(130deg, rgba(214, 164, 81, 0.15), transparent 34%),
+        linear-gradient(215deg, rgba(138, 160, 178, 0.14), transparent 38%),
+        radial-gradient(circle at 55% 8%, rgba(246, 241, 232, 0.08), transparent 28%);
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      position: relative;
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      align-items: end;
+      min-height: 58vh;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 40px;
+    }
+
+    .eyebrow,
+    .label {
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 12px 0 18px;
+      font-size: clamp(3rem, 8vw, 7.2rem);
+      line-height: 0.88;
+      letter-spacing: 0;
+    }
+
+    h2,
+    h3 {
+      letter-spacing: 0;
+      line-height: 1;
+    }
+
+    p { color: var(--muted); }
+
+    .intro {
+      max-width: 650px;
+      font-size: 1.08rem;
+    }
+
+    .brief-box {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .brief-box h2 {
+      margin: 0 0 16px;
+      font-size: 1rem;
+    }
+
+    .fields {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .fields li {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 14px;
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .fields strong { color: var(--ink); }
+
+    .notice {
+      margin-top: 18px;
+      color: var(--ink);
+      font-size: 0.92rem;
+    }
+
+    .concepts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      padding: 34px 0;
+    }
+
+    .concept {
+      min-height: 720px;
+      display: flex;
+      flex-direction: column;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .concept__visual {
+      min-height: 210px;
+      display: grid;
+      place-items: center;
+      background: var(--panel-strong);
+      border-bottom: 1px solid var(--line);
+      perspective: 900px;
+    }
+
+    .frame {
+      width: 68%;
+      aspect-ratio: 4 / 5;
+      border: 1px solid rgba(246, 241, 232, 0.32);
+      border-radius: 4px;
+      transform: rotateX(58deg) rotateZ(-18deg) translate3d(0, 0, 0);
+      transition: transform 700ms var(--ease-out);
+    }
+
+    .concept:hover .frame { transform: rotateX(48deg) rotateZ(-10deg) translate3d(0, -8px, 0); }
+
+    .frame--amber { background: linear-gradient(155deg, rgba(214, 164, 81, 0.92), rgba(31, 25, 19, 0.95)); }
+    .frame--steel { background: linear-gradient(155deg, rgba(138, 160, 178, 0.9), rgba(17, 23, 30, 0.95)); }
+    .frame--sage { background: linear-gradient(155deg, rgba(156, 174, 138, 0.9), rgba(20, 26, 20, 0.95)); }
+
+    .concept__body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 18px;
+      padding: 22px;
+    }
+
+    .concept h2 {
+      margin: 0;
+      font-size: 1.65rem;
+    }
+
+    .summary {
+      min-height: 76px;
+      margin: 0;
+    }
+
+    dl {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+    }
+
+    dt {
+      color: var(--ink);
+      font-size: 0.72rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    dd {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .decision {
+      margin-top: auto;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+
+    .decision strong { color: var(--ink); }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      border-top: 1px solid var(--line);
+      padding-top: 28px;
+    }
+
+    .checklist {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .checklist li + li { margin-top: 8px; }
+
+    @media (max-width: 980px) {
+      header,
+      .concepts,
+      .footer-grid { grid-template-columns: 1fr; }
+      header { min-height: auto; }
+      .concept { min-height: auto; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+        animation-duration: 1ms !important;
+      }
+      .frame,
+      .concept:hover .frame { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div>
+        <p class="eyebrow">10K-PremiumStudio concept selector</p>
+        <h1>Three landing page directions</h1>
+        <p class="intro">This file is a decision aid, not a final website. Replace the placeholders with one client brief, compare three directions, choose one, then record the selected template and rejected runner-up in <code>brief.md</code>.</p>
+      </div>
+      <section class="brief-box" aria-labelledby="brief-title">
+        <h2 id="brief-title">Canonical six fields</h2>
+        <ul class="fields">
+          <li><strong>klantnaam</strong><span>[Client or brand name]</span></li>
+          <li><strong>one thing</strong><span>[Single promise the page must prove]</span></li>
+          <li><strong>scene</strong><span>[Cinematic setting, light, material, mood]</span></li>
+          <li><strong>proof</strong><span>[Evidence, product detail, case, demo, result]</span></li>
+          <li><strong>assets</strong><span>[Five scene-derived assets, no stock dependency]</span></li>
+          <li><strong>CTA</strong><span>[One primary action]</span></li>
+        </ul>
+        <p class="notice"><strong>Scene wins.</strong> The template shapes the story; the scene sets palette, typography mood, light, and motion restraint.</p>
+      </section>
+    </header>
+
+    <section class="concepts" aria-label="Three concept options">
+      <article class="concept" data-concept="A">
+        <div class="concept__visual" aria-hidden="true"><div class="frame frame--amber"></div></div>
+        <div class="concept__body">
+          <p class="label">Concept A</p>
+          <h2>Cinematic Signature</h2>
+          <p class="summary">A full-scene brand opening for a client whose atmosphere is the strongest proof of premium value.</p>
+          <dl>
+            <div><dt>Selected template</dt><dd><code>hero-immersive</code></dd></div>
+            <div><dt>Rejected runner-up</dt><dd><code>narrative-driven</code>, because the first screen should persuade before the story unfolds.</dd></div>
+            <div><dt>Layout rhythm</dt><dd>One dominant hero, slow reveal, four proof tiles, quiet close.</dd></div>
+            <div><dt>Brand direction</dt><dd>Warm cinematic contrast, restrained logo presence, large confident type, minimal UI chrome.</dd></div>
+            <div><dt>Asset plan</dt><dd>Hero scene, two detail crops, one proof image, one SVG mark.</dd></div>
+            <div><dt>CTA direction</dt><dd>Single invitation tied to the premium promise.</dd></div>
+            <div><dt>Why this fits</dt><dd>The one thing is felt through the scene first; copy only sharpens the signal.</dd></div>
+          </dl>
+          <p class="decision"><strong>Choose when:</strong> the brand needs instant desire before explanation.</p>
+        </div>
+      </article>
+
+      <article class="concept" data-concept="B">
+        <div class="concept__visual" aria-hidden="true"><div class="frame frame--steel"></div></div>
+        <div class="concept__body">
+          <p class="label">Concept B</p>
+          <h2>Proof In Motion</h2>
+          <p class="summary">A video-led or spatial reveal route for products, venues, or services that need motion to become believable.</p>
+          <dl>
+            <div><dt>Selected template</dt><dd><code>video-3d-reveal</code></dd></div>
+            <div><dt>Rejected runner-up</dt><dd><code>product-first</code>, because the proof depends on movement rather than static variants.</dd></div>
+            <div><dt>Layout rhythm</dt><dd>Hero frame, spatial reveal, proof orbit, mechanism slice, still close.</dd></div>
+            <div><dt>Brand direction</dt><dd>Precise studio light, technical calm, tactile surfaces, measured depth cues.</dd></div>
+            <div><dt>Asset plan</dt><dd>Hero video with poster, product still, two proof details, one SVG mark.</dd></div>
+            <div><dt>CTA direction</dt><dd>Book a demo, request a private viewing, or start the configuration.</dd></div>
+            <div><dt>Why this fits</dt><dd>The one thing becomes credible only when the user sees the object or system move.</dd></div>
+          </dl>
+          <p class="decision"><strong>Choose when:</strong> motion is proof, not decoration.</p>
+        </div>
+      </article>
+
+      <article class="concept" data-concept="C">
+        <div class="concept__visual" aria-hidden="true"><div class="frame frame--sage"></div></div>
+        <div class="concept__body">
+          <p class="label">Concept C</p>
+          <h2>Authority System</h2>
+          <p class="summary">A trust-first direction for experts, consultancies, or high-ticket services where method and proof must lead.</p>
+          <dl>
+            <div><dt>Selected template</dt><dd><code>consultant-authority</code></dd></div>
+            <div><dt>Rejected runner-up</dt><dd><code>service-agency</code>, because personal authority is stronger than a broad service menu.</dd></div>
+            <div><dt>Layout rhythm</dt><dd>Thesis, proof ladder, method, results, focused CTA.</dd></div>
+            <div><dt>Brand direction</dt><dd>Quiet editorial spacing, sober contrast, precise language, credible restraint.</dd></div>
+            <div><dt>Asset plan</dt><dd>Portrait or work scene, method diagram, two proof visuals, one SVG mark.</dd></div>
+            <div><dt>CTA direction</dt><dd>Apply, schedule intake, or request a strategic review.</dd></div>
+            <div><dt>Why this fits</dt><dd>The one thing is a claim of judgment; the page must make the expert feel inevitable.</dd></div>
+          </dl>
+          <p class="decision"><strong>Choose when:</strong> trust, taste, and track record carry the sale.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="footer-grid" aria-label="Decision checklist">
+      <div>
+        <p class="label">How to decide</p>
+        <h2>Pick one route before build</h2>
+        <p>Do not merge concepts. Choose the direction whose template, proof strategy, and brand direction best serve the same scene.</p>
+      </div>
+      <ol class="checklist">
+        <li>Replace all bracketed six-field values with project facts or explicit assumptions.</li>
+        <li>Keep only scene-derived palette, type mood, lighting, and asset notes.</li>
+        <li>Record selected template, rejected runner-up, and one reason in <code>brief.md</code>.</li>
+        <li>Build one production site from <code>apps/_template-site</code> and prove it with <code>npm run check</code>.</li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>

@@ -30,6 +30,15 @@ typography, and light (constitution §5: the scene wins). Record the chosen temp
 the rejected runner-up in `projects/<client>/brief.md`. When no preset fits, build bespoke
 from `apps/_template-site`.
 
+
+## Concept Preview (optional)
+
+When the user asks for multiple directions, or when more than one template plausibly fits,
+copy `projects/_template/concepts.html` to `projects/<client>/concepts.html` and fill three
+routes before building. Each route must name the selected template, rejected runner-up,
+layout rhythm, brand direction, asset plan, CTA direction, and why it fits the `one thing`
+plus `scene`. After the user chooses, record the selected template and rejected runner-up
+in `projects/<client>/brief.md`.
 ## Build Rule
 
 Build directly only when the canonical six fields are present or explicitly assumed:

@@ -26,6 +26,7 @@
 - `blueprints/06-ux-principles.md` + `prompts/03-storytelling.md` add uxhints UX laws and a 4-act narrative; the testable subset is enforced by `npm run check:ux`.
 - `blueprints/07-motion-standards.md` adds Emil Kowalski motion standards (easing tokens shipped in the template); enforced by `npm run check:motion`.
 - `templates/` adds an optional curated layer of 12 narrative-form **blueprint-presets** (a startpunt, not an eindproduct); selection by form via `templates/selection-guide.md` (the scene still wins, §5); offline-first, gated by `npm run test:templates`.
+- `projects/_template/concepts.html` offers a three-concept landing-page preview for choosing layout, template, and brand direction before build; gated by `npm run test:concepts`.
 
 ## Commands
 

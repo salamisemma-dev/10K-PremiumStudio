@@ -16,7 +16,10 @@
 
 - `node tests/templates-collection.test.mjs` (asserts the templates user guide exists and
   frames templates as a startpunt, not an eindproduct).
+- `node tests/concept-preview.test.mjs` (asserts the concept preview guide is wired to the
+  reusable HTML artifact).
 
 ## Child DOX Index
 
 - `templates-user-guide.md` — how to build a site with the template-collection.
+- `concept-preview-guide.md` — how to compare three landing-page concepts before build.
