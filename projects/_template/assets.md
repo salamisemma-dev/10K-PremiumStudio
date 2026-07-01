@@ -16,3 +16,14 @@ Heavy media lives outside git by default. Store only metadata here.
 - Lighting:
 - Color direction:
 - Texture:
+
+## Hero Front Direction
+
+- Hero subject:
+- Camera view:
+- Background:
+- Aspect ratio: 16:9 desktop master, 4:5 mobile crop safe
+- Text-safe area:
+- Reference influence to adopt:
+- Reference influence to reject:
+- Generated hero prompt:

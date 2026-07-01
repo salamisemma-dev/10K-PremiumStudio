@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "build": "node checks/astro-command.mjs check && node checks/astro-command.mjs build",
-    "check": "npm run spec:validate && npm run test && npm run check:structure && npm run check:design && npm run check:copy && npm run build && npm run check:browser && npm run check:lighthouse && npm run check:site && npm run check:impeccable && npm run check:ux && npm run check:motion",
+    "check": "npm run spec:validate && npm run test && npm run check:structure && npm run check:design && npm run check:copy && npm run build && npm run check:browser && npm run check:lighthouse && npm run check:site && npm run check:impeccable && npm run check:ux && npm run check:motion && npm run check:learning && npm run check:hero && npm run check:plugin-skill && npm run check:ideas",
     "check:structure": "node checks/structure-check.mjs",
     "check:design": "node checks/design-intel.mjs --selfcheck",
     "check:impeccable": "node checks/impeccable-audit.mjs",
@@ -31,8 +31,17 @@
     "check:lighthouse": "node checks/lighthouse-audit.mjs",
     "dev": "node checks/astro-command.mjs dev --host 127.0.0.1 --port 4321",
     "preview": "node checks/astro-command.mjs preview --host 127.0.0.1 --port 4321",
-    "test": "npm run test:design && npm run test:impeccable && npm run test:ux && npm run test:motion && npm run test:external && npm run test:intake && npm run test:templates && npm run test:concepts",
-    "test:concepts": "node tests/concept-preview.test.mjs"
+    "test": "npm run test:design && npm run test:impeccable && npm run test:ux && npm run test:motion && npm run test:external && npm run test:intake && npm run test:templates && npm run test:concepts && npm run test:learning && npm run test:hero && npm run test:ideas",
+    "test:concepts": "node tests/concept-preview.test.mjs",
+    "check:learning": "node checks/learning-review.mjs",
+    "test:learning": "node tests/learning-program.test.mjs",
+    "hero:prompt": "node checks/hero-front-prompt.mjs",
+    "test:hero": "node tests/hero-front-expert.test.mjs",
+    "check:hero": "node checks/hero-front-prompt.mjs --selfcheck",
+    "sync:plugin-skill": "node scripts/sync-packaged-skill.mjs",
+    "check:plugin-skill": "node scripts/sync-packaged-skill.mjs --check",
+    "test:ideas": "node tests/ideas-backlog.test.mjs",
+    "check:ideas": "node checks/ideas-review.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0",

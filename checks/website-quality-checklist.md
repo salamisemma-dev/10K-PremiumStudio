@@ -13,8 +13,9 @@ Use this after automated checks.
 
 ## SEO
 
-- One `h1`.
+- One `h1` per route.
 - JSON-LD present.
+- Unique title, meta description, canonical URL, and crawlable nav links per route.
 - Schema type matches the project brief.
 - Images have alt text.
 - Media dimensions are fixed.
@@ -32,3 +33,9 @@ Use this after automated checks.
 - Screenshot paths recorded.
 - Lighthouse result recorded when available.
 - Open risks recorded.
+
+## Learning
+
+- `projects/<client>/learning.md` completed after delivery.
+- Every reusable lesson includes evidence, pros, cons, and a fix for each con.
+- Accepted lessons identify the owner files they change.

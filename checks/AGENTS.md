@@ -15,6 +15,9 @@
 - `ux-lint.mjs` enforces the objective UX subset and exports `runUxLint` for tests.
 - `motion-lint.mjs` enforces the objective Emil motion subset and exports `runMotionLint` for tests.
 - `site-audit.mjs` checks the built template site for SEO, a11y, image dimensions, schema, and delivery evidence.
+- `learning-review.mjs` checks client project learning records and design-intelligence reference learning records for required evidence, pros, cons, fixes, statuses, and owner-file references without treating reference studies as delivered client sites.
+- `hero-front-prompt.mjs` generates and self-checks Hero Front Expert image prompts from project facts.
+- `ideas-review.mjs` checks the speculative idea backlog and keeps ideas from masquerading as client work or reference studies.
 - `website-quality-checklist.md` records manual verification steps.
 
 ## Local Contracts
@@ -38,6 +41,9 @@
 - `npm run check:lighthouse`
 - `npm run check:ux`
 - `npm run check:motion`
+- `npm run check:learning`
+- `npm run check:hero`
+- `npm run check:ideas`
 - `npm run intake:convert -- <source> [out.md]` (optional, not in `npm run check`)
 
 ## Child DOX Index
@@ -54,3 +60,6 @@
 - `motion-lint.mjs` - Objective motion lint and importable test gate.
 - `site-audit.mjs` - Built HTML audit for SEO, a11y, schema, media, and delivery evidence.
 - `website-quality-checklist.md` - Manual browser and delivery checks.
+- `learning-review.mjs` - Client project and reference-study learning-record review gate.
+- `hero-front-prompt.mjs` - Hero Front Expert prompt generator and selfcheck.
+- `ideas-review.mjs` - Speculative idea backlog review gate.

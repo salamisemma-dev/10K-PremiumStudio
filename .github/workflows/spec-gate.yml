@@ -12,10 +12,27 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
       - name: BOB spec validate (constitution + specs)
         run: node scripts/bob_validate.mjs --strict .
       - name: Design-intelligence selfcheck
         run: node checks/design-intel.mjs --selfcheck
       - name: Design-intelligence verification test
         run: node tests/design-intelligence.test.mjs
+
+      - name: Learning program verification test
+        run: node tests/learning-program.test.mjs
+      - name: Learning review check
+        run: node checks/learning-review.mjs
+
+      - name: Hero Front Expert verification test
+        run: node tests/hero-front-expert.test.mjs
+      - name: Hero Front prompt selfcheck
+        run: node checks/hero-front-prompt.mjs --selfcheck
+      - name: Packaged skill sync check
+        run: node scripts/sync-packaged-skill.mjs --check
+
+      - name: Ideas backlog verification test
+        run: node tests/ideas-backlog.test.mjs
+      - name: Ideas backlog review check
+        run: node checks/ideas-review.mjs

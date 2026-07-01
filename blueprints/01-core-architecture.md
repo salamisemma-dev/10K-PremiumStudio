@@ -47,3 +47,19 @@ Before delivery, verify:
 - Color and asset lighting match.
 - Motion uses transform and opacity where possible.
 - The no-JS experience is readable.
+
+## Route Architecture
+
+- Default to one focused landing page.
+- Use multiple routes only when the brief has distinct visitor jobs that would weaken one page.
+- Each route keeps one role, one primary visual anchor, and one dominant CTA path.
+- The site still uses one scene and the five-asset budget; extra routes do not reset the asset budget.
+
+## Scene-Expressive Interaction
+
+A premium interaction must express the scene or promise. A GoodVisuals-style canvas works because it turns complexity into connected clarity; a Rolls-Royce-style full-bleed product scene works because it lets the object carry status without over-explaining.
+
+- Use at most one memorable motion metaphor per route.
+- Provide a static fallback and reduced-motion state.
+- Mark decorative canvas or visual effects `aria-hidden="true"`; meaningful interactive media needs an accessible name and fallback text.
+- Use semantic color tokens derived from the scene, not brand-color variable names copied from a reference.

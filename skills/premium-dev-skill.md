@@ -20,6 +20,10 @@ Before writing code, read:
 10. `projects/<client>/brief.md`
 11. `projects/<client>/assets.md`
 12. `projects/<client>/acceptance.md`
+13. `projects/<client>/learning.md` when reviewing a completed site or carrying lessons into a new build
+14. `learning/patterns.md` when reference lessons may improve the build
+15. `hero-front/hero-front-expert.md` before generating hero imagery
+16. `prompts/04-hero-front-prompt.md` when preparing image-generation prompts
 
 ## Template Selection (optional)
 
@@ -30,6 +34,14 @@ typography, and light (constitution §5: the scene wins). Record the chosen temp
 the rejected runner-up in `projects/<client>/brief.md`. When no preset fits, build bespoke
 from `apps/_template-site`.
 
+## Route Choice
+
+Default to one landing page. Build a multi-page site only when the brief records distinct visitor jobs in `projects/<client>/brief.md` under `Page Architecture` (a `landing-page-led` multi-page site). Each route needs one job, one `h1`, one anchor, route-specific metadata (title/description/canonical), and a clear CTA path. Extra pages do not reset the one-scene or five-asset rule.
+
+## Hero Front Expert
+
+Before generating a hero image, read `hero-front/hero-front-expert.md` and fill the Hero Front Direction in `projects/<client>/assets.md`. Use `npm run hero:prompt -- projects/<client>` to generate the prompt, then store the final prompt and asset metadata in `assets.md`. Reference sites guide camera, material, background, and restraint only; never copy their brand, layout, copy, or exact imagery.
+
 
 ## Concept Preview (optional)
 
@@ -39,6 +51,7 @@ routes before building. Each route must name the selected template, rejected run
 layout rhythm, brand direction, asset plan, CTA direction, and why it fits the `one thing`
 plus `scene`. After the user chooses, record the selected template and rejected runner-up
 in `projects/<client>/brief.md`.
+
 ## Build Rule
 
 Build directly only when the canonical six fields are present or explicitly assumed:
@@ -64,3 +77,7 @@ Build directly only when the canonical six fields are present or explicitly assu
 ## Delivery Rule
 
 Run the repository checks, including `npm run check:motion`, and record delivery evidence before calling a project complete.
+
+## Learning Rule
+
+After delivery, fill `projects/<client>/learning.md`. Record what the site taught the repo, including pros, cons, and a fix for each con. Accepted lessons update owner files only through reviewed edits; the learning record does not automatically mutate skills, templates, or blueprints.

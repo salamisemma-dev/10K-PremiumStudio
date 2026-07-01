@@ -24,4 +24,17 @@
 
 ## Schema Type
 
-- Choose one: `WebSite`, `LocalBusiness`, `Product`, `Service`.
+- Choose one: WebSite, LocalBusiness, Product, Service.
+
+## Page Architecture
+
+- Default: single landing page.
+- Multi-page reason:
+- Routes:
+  - / - visitor job, route message, proof, CTA.
+
+## Reference Lessons
+
+- Adopted reference lessons:
+- Rejected reference lessons:
+- Why the scene still wins:

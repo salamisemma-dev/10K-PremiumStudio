@@ -18,8 +18,10 @@
   frames templates as a startpunt, not an eindproduct).
 - `node tests/concept-preview.test.mjs` (asserts the concept preview guide is wired to the
   reusable HTML artifact).
+- `node tests/learning-program.test.mjs` (asserts the learning guide is wired to the project learning loop).
 
 ## Child DOX Index
 
 - `templates-user-guide.md` — how to build a site with the template-collection.
 - `concept-preview-guide.md` — how to compare three landing-page concepts before build.
+- `learning-program.md` — how completed sites feed reviewed lessons back into source owners.

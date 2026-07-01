@@ -20,13 +20,15 @@
 - `projects/` owns client input and assumptions.
 - `apps/` owns implementation code.
 - `checks/` owns executable verification.
-- `design-intelligence/` is a consulted corpus (candidates only); `constitution.md` + `specs/` are the permanent intent, gated by `npm run spec:validate`.
+- `design-intelligence/` is a consulted corpus (candidates only), with reference-learning dossiers in `design-intelligence/references/`; `constitution.md` + `specs/` are the permanent intent, gated by `npm run spec:validate`.
 - `blueprints/05-craft-and-bans.md` + `.impeccable/` add the impeccable anti-pattern gate (`npm run check:impeccable`); adopted objective bans only, scene-conflicting rules off.
 - `.claude-plugin/` packages the repo-coupled cowork plugin: `claude plugin marketplace add salamisemma-dev/10K-PremiumStudio`, then add `premium-website-builder`.
 - `blueprints/06-ux-principles.md` + `prompts/03-storytelling.md` add uxhints UX laws and a 4-act narrative; the testable subset is enforced by `npm run check:ux`.
 - `blueprints/07-motion-standards.md` adds Emil Kowalski motion standards (easing tokens shipped in the template); enforced by `npm run check:motion`.
 - `templates/` adds an optional curated layer of 12 narrative-form **blueprint-presets** (a startpunt, not an eindproduct); selection by form via `templates/selection-guide.md` (the scene still wins, §5); offline-first, gated by `npm run test:templates`.
 - `projects/_template/concepts.html` offers a three-concept landing-page preview for choosing layout, template, and brand direction before build; gated by `npm run test:concepts`.
+- `learning/` + `projects/<client>/learning.md` add a reviewed learning loop after each completed site; `design-intelligence/references/<study>/learning.md` records reference-study proposals without treating them as delivered client sites. Every reusable lesson records evidence, pros, cons, and a fix per con; gated by `npm run test:learning` and `npm run check:learning`.
+- `hero-front/` + `prompts/04-hero-front-prompt.md` add a Hero Front Expert prompt workflow for premium first-viewport images; generate with `npm run hero:prompt -- projects/<client>` and verify with `npm run test:hero`.
 
 ## Commands
 

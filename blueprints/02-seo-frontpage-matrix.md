@@ -39,3 +39,15 @@ Make every premium page technically legible to users, assistive technology, and 
 2. Thesis and proof.
 3. Feature details.
 4. Call to action.
+
+## Route-Level SEO
+
+For multi-page sites, apply the matrix per route:
+
+- Exactly one `h1` per route.
+- Unique title and meta description per route.
+- Canonical URL per route.
+- JSON-LD strategy is explicit: one site-level entity plus route-specific `Service`, `Product`, `AboutPage`, `ContactPage`, or `WebPage` when useful.
+- Navigation links are crawlable HTML links.
+- Tables with proof data need captions or surrounding source context.
+- Forms need named fields, labels, validation, privacy context, and a documented endpoint or recorded no-backend assumption.

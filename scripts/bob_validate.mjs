@@ -88,14 +88,14 @@ for (const file of specs) {
 //   if (dream) { /* assert columns/invariants */ }
 // ─────────────────────────────────────────────────────────────────────────────
 
-// 10K-PremiumStudio drift checks for the design-intelligence integration spec.
+// 10K-PremiumStudio drift checks for design, learning, hero-front, and packaged-skill gates.
 try {
   const pkg = JSON.parse(read(join(ROOT, 'package.json')));
   const scripts = pkg.scripts || {};
-  for (const name of ['spec:validate', 'test', 'test:design', 'test:impeccable', 'test:ux', 'test:motion', 'test:external', 'test:intake', 'test:templates', 'test:concepts', 'check:design', 'check:impeccable', 'check:ux', 'check:motion', 'intake:convert', 'check']) {
+  for (const name of ['spec:validate', 'test', 'test:design', 'test:impeccable', 'test:ux', 'test:motion', 'test:external', 'test:intake', 'test:templates', 'test:concepts', 'test:learning', 'test:hero', 'check:structure', 'check:design', 'check:impeccable', 'check:ux', 'check:motion', 'check:learning', 'check:hero', 'hero:prompt', 'sync:plugin-skill', 'check:plugin-skill', 'test:ideas', 'check:ideas', 'intake:convert', 'check']) {
     if (!scripts[name]) errors.push(`package.json: missing required script "${name}".`);
   }
-  for (const gate of ['test:design', 'test:impeccable', 'test:ux', 'test:motion', 'test:external', 'test:intake', 'test:templates', 'test:concepts']) {
+  for (const gate of ['test:design', 'test:impeccable', 'test:ux', 'test:motion', 'test:external', 'test:intake', 'test:templates', 'test:concepts', 'test:learning', 'test:hero', 'test:ideas']) {
     if (scripts.test && !scripts.test.includes(gate)) errors.push(`package.json: "test" must run ${gate}.`);
   }
   if (scripts['check:design'] && !/checks\/design-intel\.mjs\s+--selfcheck/.test(scripts['check:design'])) {
@@ -112,7 +112,7 @@ try {
     errors.push('package.json: markitdown/python must remain optional and out of dependencies.');
   }
   if (scripts.check) {
-    for (const gate of ['spec:validate', 'test', 'check:design', 'check:impeccable', 'check:ux', 'check:motion']) {
+    for (const gate of ['spec:validate', 'test', 'check:structure', 'check:design', 'check:impeccable', 'check:ux', 'check:motion', 'check:learning', 'check:hero', 'check:plugin-skill', 'check:ideas']) {
       if (!scripts.check.includes(gate)) errors.push(`package.json: "check" must include ${gate}.`);
     }
   }

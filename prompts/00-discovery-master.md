@@ -30,3 +30,16 @@ not installed), then read the markdown. Markdown is the source of truth.
 ## Rule
 
 If one of the six output fields is missing, write an explicit assumption in the brief before code starts.
+
+## Route Map Output
+
+When the intake suggests more than one visitor job, add a `Page Architecture` section to `brief.md` before build:
+
+- Route:
+- Visitor job:
+- One route message:
+- Proof needed:
+- CTA:
+- Why this cannot live on the landing page:
+
+If the site remains one page, record that choice in one sentence. Extra pages are justified by user jobs, not by wanting the site to feel larger.

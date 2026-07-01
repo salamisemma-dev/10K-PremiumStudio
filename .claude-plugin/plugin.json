@@ -1,7 +1,7 @@
 {
   "name": "premium-website-builder",
-  "description": "10K-PremiumStudio: build calm, cinematic, high-performance premium landing pages from brand + blueprints + a vendored design-intelligence corpus, gated by impeccable, UX, and Emil Kowalski motion standards (`check:motion`). Scene-first, anti-slop, evidence-verified. Optional curated template presets (11 narrative-form skeletons; the scene still wins).",
-  "version": "0.4.0",
+  "description": "10K-PremiumStudio: build calm, cinematic, high-performance premium landing pages from brand + blueprints + a vendored design-intelligence corpus, gated by impeccable, UX, and Emil Kowalski motion standards (`check:motion`). Scene-first, anti-slop, evidence-verified. Includes 12 optional narrative-form template presets (the scene still wins), a hero-front image-prompt method, route-aware multi-page architecture, and a reviewed learning loop from completed sites.",
+  "version": "0.5.0",
   "author": {
     "name": "10K-PremiumStudio"
   },

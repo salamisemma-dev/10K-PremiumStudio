@@ -2,7 +2,7 @@
 
 ## Identity
 
-10K-PremiumStudio builds calm, cinematic landing pages for premium offers.
+10K-PremiumStudio builds calm, cinematic landing-page-led websites for premium offers.
 
 We do not make loud templates. We direct one focused digital scene.
 
@@ -11,6 +11,8 @@ We do not make loud templates. We direct one focused digital scene.
 One scene. Five assets. Built with restraint.
 
 A premium website earns attention through space, precision, and timing. It does not fill every gap.
+
+Cinematic restraint means controlled pacing, material confidence, and quiet authority. Reference sites may inform composition and restraint, but the scene decides and copying is forbidden.
 
 ## Tone Of Voice
 

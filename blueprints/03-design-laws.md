@@ -42,3 +42,11 @@ Use a small number of memorable motion moments per page. Constant animation, dec
 Animations should use `transform` and `opacity` where possible.
 
 Complex motion needs a mobile fallback. Reduced-motion users receive a calm static experience. A motion idea that cannot preserve performance and accessibility does not ship.
+
+## 6. Curated Route System
+
+A multi-page site may be premium when every route has one job and the whole system feels directed from the same scene.
+
+Use this when the brief needs separate proof, service, method, price, trust, or contact routes. Do not split pages to make the site look bigger. The landing page remains the lead scene; supporting routes deepen one part of the argument.
+
+GoodVisuals shows the reusable structure: hero metaphor, proof band, outcome comparison, method, quality gates, impact ladder, offer tiers, diagnostic CTA. Rolls-Royce shows the pacing: full-bleed scene, sparse copy, quiet onward journey. Adopt the roles and restraint; leave the copy, colors, layout, and exact visual metaphors.

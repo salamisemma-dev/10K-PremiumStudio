@@ -14,6 +14,7 @@
 
 - Skills must avoid duplicating full blueprint text.
 - Skills must point agents to source files before implementation.
+- `skills/premium-website-builder/SKILL.md` is the source skill; sync or check the packaged copy with `npm run sync:plugin-skill` / `npm run check:plugin-skill`.
 
 ## Work Guidance
 
@@ -22,6 +23,7 @@
 ## Verification
 
 - `npm run check:copy`
+- `npm run check:plugin-skill`
 
 ## Child DOX Index
 

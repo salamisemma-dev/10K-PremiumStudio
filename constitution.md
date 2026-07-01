@@ -1,14 +1,15 @@
 # 10K-PremiumStudio — Constitution
 
 The supreme contract. Everything in `brand/`, `blueprints/`, `prompts/`, `skills/`,
-`design-intelligence/`, `apps/`, and `checks/` conforms to this. When a rule here and
-a rule elsewhere conflict, this wins; change this first, then the code.
+`projects/`, `ideas/`, `design-intelligence/`, `apps/`, and `checks/` conforms to this.
+When a rule here and a rule elsewhere conflict, this wins; change this first, then the code.
 
 ## 1. Purpose
 
-Produce calm, cinematic, high-performance premium landing pages at consistent
+Produce calm, cinematic, high-performance premium landing-page-led websites at consistent
 quality across many clients, without prompts, brand rules, client input, and code
-drifting apart.
+drifting apart. The default is a focused landing page; multi-page sites are allowed
+when distinct visitor jobs need distinct routes.
 
 ## 2. Technology standards
 
@@ -24,16 +25,19 @@ drifting apart.
 - `blueprints/` — visual/motion architecture, SEO, a11y, performance, design laws.
 - `prompts/` — generation templates (discovery, assets, copy).
 - `projects/` — client input and assumptions.
+- `ideas/` — speculative website-idea backlog; concepts with no client yet. Not client
+  work (`projects/`) and not studies of real external sites (`design-intelligence/references/`).
 - `apps/` — implementation code.
 - `checks/` — executable verification.
 - `design-intelligence/` — **consulted** design corpus; candidates only, never an
-  owner of brand or visual law (see §5).
+  owner of brand or visual law (see §5). Reference-learning dossiers live under
+  `design-intelligence/references/`, not under `projects/`.
 - Markdown in these folders is the normalized source of truth. Word docs are inputs
   or archives only. A rule lives in exactly one file; never copy it into another.
 
 ## 4. Architecture rules
 
-- Every site: one `<h1>` tied to the one thing, semantic landmarks, JSON-LD in head,
+- Every route: one `<h1>` tied to that route job and the site one thing, semantic landmarks, JSON-LD in head,
   fixed media `width`/`height`, `fetchpriority="high"` hero, lazy below the fold.
 - Motion uses `transform`/`opacity`, respects `prefers-reduced-motion`, and never
   gates content or crawlability. The page is readable without JavaScript.
@@ -54,6 +58,11 @@ may never replace the scene-first rule. The scene wins every conflict.
   copy, build, browser, Lighthouse, site, impeccable, UX, and motion checks. The
   site `delivery.md` must carry real evidence, no `pending`.
 - Spec gate: `node scripts/bob_validate.mjs --strict .` green before code; CI runs it.
+- Learning gate: every completed site records `projects/<client>/learning.md`;
+  reference studies may record proposed lessons under `design-intelligence/references/`.
+  Accepted lessons update owner files through reviewed edits, never automatic source mutation.
+- Ideas gate: speculative concepts live in `ideas/` until a real client or studied
+  external reference moves them to the owning tree.
 - Secrets: never committed; documented in `.env.example`; `.env` stays out of git.
 
 ## 7. Amendment

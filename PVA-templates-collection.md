@@ -115,7 +115,8 @@ De 12 templates: `hero-immersive`, `narrative-driven`, `product-first`,
 - Losse Tailwind-CDN `index.html`-pagina's (breken offline-first + de gates).
 - Stock-beeld-URL's (Unsplash/Pexels/Picsum) — assets blijven scene-afgeleid, 5-asset-regel.
 - `transition: all`, bounce/overshoot-easing en reduced-motion-loze motion uit de bron.
-- Video-script, presentatie-outline en release-checklist (marketing, niet toetsbaar — open punt).`n- Emergent als verplichte workflow of runtime-afhankelijkheid; het idee is alleen als narratieve vorm aangenomen.
+- Video-script, presentatie-outline en release-checklist (marketing, niet toetsbaar — open punt).
+- Emergent als verplichte workflow of runtime-afhankelijkheid; het idee is alleen als narratieve vorm aangenomen.
 - Een aparte "Template Architect" system-prompt: de selectiestap leeft in de bestaande
   skill-workflow + de selectiegids (één rol, één eigenaar).
 

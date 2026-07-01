@@ -53,6 +53,8 @@ Each rule has exactly one owner. Read the owner, do not re-derive its content.
 | Intake doc conversion | `checks/intake-convert.mjs` | optional markitdown bridge: client `.docx`/`.pdf` -> intermediate markdown for brief normalization (`npm run intake:convert`, offline-optional) |
 | Template presets (optional) | `templates/selection-guide.md` | pick a narrative-form skeleton; the scene still wins (§5); a startpunt, not an eindproduct |
 | Reference implementation | `apps/_template-site/` | a passing Astro + Tailwind + GSAP page |
+| Learning memory | `learning/patterns.md` + `projects/<client>/learning.md` | reviewed patterns from completed sites; proposals only until owner files change |
+| Hero Front Expert | `hero-front/hero-front-expert.md` + `prompts/04-hero-front-prompt.md` | first-viewport image prompt method for camera, background, lighting, composition, and negative constraints |
 | Quality gate | `checks/` + root `package.json` | what "done" must prove |
 
 Always walk the DOX chain first: read root `AGENTS.md`, then the `AGENTS.md` of
@@ -117,6 +119,16 @@ Before building, draft the content as a story and lock the UX rules:
   (a11y), max 2 font families, readable leading. Headline tracking stays near-normal
   (do not widen - it is a banned tell).
 
+### 3d. Choose route architecture
+
+Default to one focused landing page. Use a multi-page site only when `projects/<client>/brief.md` records distinct visitor jobs under `Page Architecture` (a `landing-page-led` multi-page site). Each route needs one job, one `h1`, route-specific metadata (title/description/canonical), crawlable nav, and a clear CTA path. The site still has one scene and one five-asset budget.
+
+Consult `learning/patterns.md` and `design-intelligence/examples-goodvisuals-rollsroyce.md` when the brief resembles a proof-led clarity site or needs Rolls-Royce-style restraint. Adopt roles and pacing; reject copied colors, layouts, copy, and visual metaphors.
+
+### 3e. Prepare the hero front prompt
+
+Before generating hero imagery, read `hero-front/hero-front-expert.md` and fill `projects/<client>/assets.md` under Hero Front Direction. Run `npm run hero:prompt -- projects/<client>` to produce a Nano Banana Pro or ChatGPT-ready prompt. Store the final prompt in `assets.md` with dimensions, alt-text direction, ownership, and load strategy. Use Duten, Breakfast, Juice, Rolls-Royce, and GoodVisuals as reference lessons only; never copy brand cues, layout, copy, or exact visual metaphors.
+
 ### 4. Build the site
 
 - For a new client, copy `apps/_template-site/` to `apps/<client>-site/` and adapt
@@ -144,10 +156,7 @@ Run the gate from the repository root and fix until green:
 npm run check
 ```
 
-This chains: spec validate, design-intelligence selfcheck, structure, copy lint,
-Astro build, Playwright browser audit (desktop + mobile, console-error free),
-Lighthouse, the site audit, the **impeccable anti-pattern audit**
-(`check:impeccable`), UX lint (`check:ux`), and motion lint (`check:motion`). Useful single steps while iterating: `npm run check:structure`, `npm run check:copy`, `npm run check:browser`, `npm run check:lighthouse`, `npm run check:site`, `npm run check:impeccable`, `npm run check:ux`, `npm run check:motion`.
+This chains: spec validate, all verification tests, structure, design-intelligence selfcheck, copy lint, Astro build, Playwright browser audit (desktop + mobile, console-error free), Lighthouse, the site audit, the **impeccable anti-pattern audit** (`check:impeccable`), UX lint (`check:ux`), motion lint (`check:motion`), learning review (`check:learning`), Hero Front selfcheck (`check:hero`), and packaged skill sync (`check:plugin-skill`). Useful single steps while iterating: `npm run test:learning`, `npm run test:hero`, `npm run check:structure`, `npm run check:copy`, `npm run check:browser`, `npm run check:lighthouse`, `npm run check:site`, `npm run check:impeccable`, `npm run check:ux`, `npm run check:motion`, `npm run check:learning`, `npm run check:hero`, `npm run check:plugin-skill`.
 
 The impeccable gate (`checks/impeccable-audit.mjs`) enforces the adopted absolute
 bans in `blueprints/05-craft-and-bans.md` (side-stripe borders, gradient text,
@@ -171,6 +180,10 @@ required sections: `URL`, `Commands`, `Screenshots`, `Lighthouse`, `Schema`,
 `Asset Manifest`, `Open Risks`. Pull scores from
 `delivery/lighthouse-summary.json` and screenshot paths from
 `delivery/screenshots/`. "Done" means proven, not promised.
+
+### 6b. Capture learning
+
+After delivery evidence is filled, complete `projects/<client>/learning.md`. Every reusable lesson needs evidence, affected owner file, proposed change, pros, cons, and a fix for each con. Accepted lessons become reviewed owner-file edits; do not automatically rewrite skills, templates, blueprints, or prompts from the learning record.
 
 ### 7. DOX pass before you call it finished
 
@@ -205,6 +218,7 @@ This skill is packaged as an installable plugin (`.claude-plugin/plugin.json` +
 - Six fields present or assumed on the record in `projects/<client>/brief.md`.
 - `npm run check` exits green.
 - `delivery.md` carries real evidence with no `pending`.
+- `projects/<client>/learning.md` completed or a No Durable Lessons note recorded.
 - DOX chain re-checked and owning `AGENTS.md` files current.
 
 ## Anti-patterns to avoid
@@ -215,3 +229,14 @@ This skill is packaged as an installable plugin (`.claude-plugin/plugin.json` +
 - Calling the site done on a screenshot alone, with checks unrun or red.
 - Adding heavy binary media to git; keep media light or out of the repo per
   `.gitignore` and `apps/_template-site/AGENTS.md`.
+- Picking a template by branche or product-type, or letting the template set palette,
+  typography, or light. Selection is by narrative form; the scene wins (§5).
+- Cloning a reference site (Rolls-Royce, GoodVisuals, Duten, Breakfast, Juice) by copying its
+  brand, layout, copy, or exact imagery. Adopt only camera, material, pacing, and restraint.
+- Depending on an external generation service (Emergent, a CDN, stock libraries) to build or
+  verify a site. Assets stay scene-derived and offline-first; `video-3d-reveal` is a narrative
+  preset, not a tool workflow.
+- Rewriting owner files (skills, templates, blueprints, prompts) automatically from
+  `projects/<client>/learning.md`. Lessons apply review-first only.
+- Adding routes without a recorded `Page Architecture`. Every route keeps one job, one `<h1>`,
+  and its own metadata; extra pages never reset the one-scene or five-asset budget.

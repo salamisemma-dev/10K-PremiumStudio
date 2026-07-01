@@ -32,9 +32,13 @@ the scene-first rule in `blueprints/01-core-architecture.md`.
   Optional; needs Python. The Node path below is the supported in-repo path.
 - `examples-*.md` — curated real-world patterns mapped to our design laws + corpus rows,
   each marked adopt/leave. `examples-21st-savethedate.md` (21st.dev + editorial archetype),
-  `examples-huly-motionsites.md` (huly.io restrained dark + motionsites motion primitives).
+  `examples-huly-motionsites.md` (huly.io restrained dark + motionsites motion primitives),
+  `examples-goodvisuals-rollsroyce.md` (proof-led clarity architecture + cinematic restraint).
 - `external-tools.md` — optional SaaS aids (khroma/use.ai/uizard) + referenced agent-skills (vercel/taste) with conflicts marked + a left-out table.
 - `inspection-guide.md` — reference-study method (study to inform, never clone); keeps a11y/SEO that the source cloner drops.
+- `references/` — reference-learning dossiers for studied external sites, campaigns,
+  portfolios, products, and brands. These are not client deliverables and never
+  belong under `projects/`.
 - `README.md` — what each dataset contains and how to query it.
 
 ## How to query (no Python needed)

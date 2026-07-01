@@ -21,6 +21,7 @@ const required = [
   "prompts/00-discovery-master.md",
   "prompts/01-visual-assets.md",
   "prompts/02-copywriting.md",
+  "prompts/04-hero-front-prompt.md",
   "skills/AGENTS.md",
   "skills/premium-dev-skill.md",
   "skills/premium-website-builder/SKILL.md",
@@ -32,6 +33,7 @@ const required = [
   "projects/_template/content.md",
   "projects/_template/assets.md",
   "projects/_template/acceptance.md",
+  "projects/_template/learning.md",
   "apps/AGENTS.md",
   "apps/_template-site/AGENTS.md",
   "apps/_template-site/package.json",
@@ -54,10 +56,15 @@ const required = [
   "checks/structure-check.mjs",
   "checks/ux-lint.mjs",
   "checks/website-quality-checklist.md",
+  "checks/learning-review.mjs",
+  "checks/hero-front-prompt.mjs",
+  "scripts/sync-packaged-skill.mjs",
   "tests/intake-conversion.test.mjs",
+  "tests/hero-front-expert.test.mjs",
   "Template/AGENTS.md",
   "Template/klant-website-discovery-vragenlijst.md",
   "Examples/AGENTS.md",
+  "hero-front/AGENTS.md",
   ".github/workflows/quality.yml"
 ];
 

@@ -12,7 +12,7 @@
 - Prefer fewer, stronger rules over duplicated prompt text.
 - When building the planned repo, create durable boundaries for brand, blueprints, prompts, skills, examples, templates, and implementation code.
 - Every generated website must preserve the core principle: one scene, five assets, semantic HTML, strong SEO, accessibility, and measured motion.
-- Markdown files in `Template/`, `brand/`, `blueprints/`, `prompts/`, `skills/`, `projects/`, `apps/`, and `checks/` are the normalized source of truth. Word documents are source inputs or archived references only.
+- Markdown files in `Template/`, `brand/`, `blueprints/`, `prompts/`, `skills/`, `projects/`, `ideas/`, `design-intelligence/references/`, `apps/`, and `checks/` are the normalized source of truth. Word documents are source inputs or archived references only.
 - Never hardcode secrets. Use environment variables, document required names in `.env.example`, and keep `.env` files out of git.
 
 ## Work Guidance
@@ -36,14 +36,17 @@
 - `blueprints/` - Design, motion, SEO, accessibility, and performance architecture.
 - `prompts/` - Prompt templates for discovery, assets, and copy generation.
 - `skills/` - AI-agent behavior contract for building premium websites.
-- `design-intelligence/` - Vendored, consulted design corpus (palettes, styles, fonts, UX, Astro stack). Candidates only; the scene wins (constitution §5).
+- `design-intelligence/` - Vendored, consulted design corpus (palettes, styles, fonts, UX, Astro stack) plus reference-learning dossiers under `references/`. Candidates only; the scene wins (constitution §5).
 - `templates/` - Optional curated layer of 12 narrative-form blueprint-presets (a startpunt, not an eindproduct); selection by form, the scene wins; offline-first; gated by `npm run test:templates`.
 - `docs/` - Human-facing guides (e.g. the templates user guide). Explanatory, not normative.
 - `projects/` - Client project inputs, assumptions, asset manifests, and acceptance records.
+- `ideas/` - Speculative website-idea backlog (concepts with no client yet); not client work, not reference studies; gated by `npm run check:ideas` / `test:ideas`.
 - `apps/` - Production website code and reusable runtime templates.
 - `checks/` - Executable quality checks and delivery verification.
+- `learning/` - Reviewed website lessons and reusable pattern records from completed builds.
+- `hero-front/` - Hero Front Expert method for premium first-viewport image prompts.
 - `specs/` - Executable specifications (Spec-Driven Development); gated by `scripts/bob_validate.mjs`.
-- `scripts/` - Spec-gate validator (`bob_validate.mjs`).
+- `scripts/` - Spec-gate validator and packaging sync helpers (`bob_validate.mjs`, `sync-packaged-skill.mjs`).
 - `tests/` - Plain-node verification tests referenced by specs.
 - `constitution.md` - Supreme contract; everything conforms to it.
 - `.claude-plugin/` - Plugin + marketplace manifests so the skill is installable (cowork).
